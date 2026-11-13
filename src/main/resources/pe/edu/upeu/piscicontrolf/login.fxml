@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="pe.edu.upeu.piscicontrolf.controller.LoginController"
+            prefWidth="850"
+            prefHeight="550"
+            style="-fx-background-color: #F1F4F8;">
+
+    <!-- ENCABEZADO -->
+    <top>
+        <VBox alignment="CENTER"
+              spacing="8"
+              style="-fx-background-color: #15558A;
+                     -fx-padding: 25;">
+
+            <Label text="PisciControlF"
+                   style="-fx-font-size: 28px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: white;"/>
+
+            <Label text="Sistema de Gestión de Piscigranja de Truchas"
+                   style="-fx-font-size: 15px;
+                          -fx-text-fill: white;"/>
+        </VBox>
+    </top>
+
+    <!-- FORMULARIO DE ACCESO -->
+    <center>
+        <StackPane>
+
+            <VBox alignment="CENTER"
+                  maxWidth="360"
+                  spacing="15"
+                  style="-fx-background-color: white;
+                         -fx-border-color: #C8D3DF;
+                         -fx-border-radius: 5;
+                         -fx-background-radius: 5;
+                         -fx-padding: 35;">
+
+                <Label text="INICIAR SESIÓN"
+                       style="-fx-font-size: 21px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: #15558A;"/>
+
+                <Label text="Ingrese sus datos para acceder"
+                       style="-fx-text-fill: #555555;"/>
+
+                <!-- USUARIO -->
+                <Label text="Usuario"
+                       maxWidth="Infinity"/>
+
+                <TextField fx:id="txtUsuario"
+                           promptText="Ingrese su usuario"
+                           prefHeight="35"
+                           maxWidth="Infinity"/>
+
+                <!-- CONTRASEÑA -->
+                <Label text="Contraseña"
+                       maxWidth="Infinity"/>
+
+                <PasswordField fx:id="txtPassword"
+                               promptText="Ingrese su contraseña"
+                               prefHeight="35"
+                               maxWidth="Infinity"/>
+
+                <!-- BOTÓN INGRESAR -->
+                <Button fx:id="btnIngresar"
+                        text="Ingresar"
+                        onAction="#ingresar"
+                        prefWidth="240"
+                        prefHeight="38"
+                        style="-fx-background-color: #1765A0;
+                               -fx-text-fill: white;
+                               -fx-font-weight: bold;"/>
+
+                <!-- MENSAJES -->
+                <Label fx:id="lblMensaje"
+                       text=""
+                       wrapText="true"
+                       maxWidth="Infinity"
+                       style="-fx-text-fill: #CC2222;"/>
+
+            </VBox>
+
+        </StackPane>
+    </center>
+
+    <!-- PIE DE PÁGINA -->
+    <bottom>
+        <HBox alignment="CENTER"
+              style="-fx-padding: 12;">
+
+            <Label text="PisciControlF - Sistema de crianza de truchas"
+                   style="-fx-text-fill: #777777;"/>
+
+        </HBox>
+    </bottom>
+
+</BorderPane>

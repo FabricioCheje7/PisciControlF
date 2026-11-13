@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="pe.edu.upeu.piscicontrolf.controller.ReportesController"
+            id="pantallaReportes"
+            prefWidth="1350" prefHeight="820"
+            stylesheets="@piscicontrol.css"
+            styleClass="pantalla">
+
+    <left>
+        <VBox prefWidth="240" spacing="9" styleClass="menu-lateral">
+            <Label text="PisciControlF" styleClass="logo"/>
+            <Label text="Gestión inteligente de piscigranjas"
+                   wrapText="true" styleClass="logo-subtitulo"/>
+            <Separator/>
+            <Label text="OPERACIONES" styleClass="menu-pie"/>
+            <Button text="Panel principal" onAction="#volverAlPanel"
+                    maxWidth="Infinity" styleClass="menu-boton"/>
+            <Button text="Gestión de estanques" onAction="#abrirEstanques"
+                    maxWidth="Infinity" styleClass="menu-boton"/>
+            <Button text="Lotes de truchas" onAction="#abrirLotes"
+                    maxWidth="Infinity" styleClass="menu-boton"/>
+            <Button text="Alimentación" onAction="#abrirAlimentacion"
+                    maxWidth="Infinity" styleClass="menu-boton"/>
+            <Button text="Crecimiento" onAction="#abrirCrecimiento"
+                    maxWidth="Infinity" styleClass="menu-boton"/>
+            <Button text="Calidad del agua" onAction="#abrirCalidadAgua"
+                    maxWidth="Infinity" styleClass="menu-boton"/>
+            <Button text="Mortalidad y Sanidad" onAction="#abrirMortalidad"
+                    maxWidth="Infinity" styleClass="menu-boton"/>
+            <Button text="Producción" onAction="#abrirProduccion"
+                    maxWidth="Infinity" styleClass="menu-boton"/>
+            <Separator/>
+            <Label text="GESTIÓN COMERCIAL" styleClass="menu-pie"/>
+            <Button text="Ventas" onAction="#abrirVentas"
+                    maxWidth="Infinity" styleClass="menu-boton"/>
+            <Button text="Reportes" maxWidth="Infinity" styleClass="menu-activo"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="PisciControlF | Versión 1.0" styleClass="menu-pie"/>
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+                    style="-fx-background-color: transparent; -fx-background: #F3F7FC; -fx-border-color: transparent;">
+            <VBox spacing="20" styleClass="contenido">
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <VBox spacing="6">
+                        <Label text="Reportes Generales" styleClass="titulo"/>
+                        <Label text="Consulta información consolidada de la piscigranja"
+                               styleClass="subtitulo"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="ANÁLISIS Y CONTROL" styleClass="etiqueta-superior"/>
+                </HBox>
+
+                <!-- Indicadores: su contenido se calculará en ReportesController. -->
+                <GridPane hgap="14">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="25"/>
+                        <ColumnConstraints percentWidth="25"/>
+                        <ColumnConstraints percentWidth="25"/>
+                        <ColumnConstraints percentWidth="25"/>
+                    </columnConstraints>
+                    <VBox spacing="8" GridPane.columnIndex="0"
+                          style="-fx-background-color: white; -fx-background-radius: 14; -fx-padding: 20; -fx-border-color: #E1E9F3; -fx-border-radius: 14; -fx-effect: dropshadow(gaussian, rgba(18,49,89,0.07), 12, 0, 0, 3);">
+                        <Label text="ESTANQUES" styleClass="indicador-titulo"/>
+                        <Label fx:id="lblTotalEstanques" text="—"
+                               style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #173657;"/>
+                        <Label text="Registrados en el sistema" styleClass="subtitulo"/>
+                    </VBox>
+                    <VBox spacing="8" GridPane.columnIndex="1"
+                          style="-fx-background-color: white; -fx-background-radius: 14; -fx-padding: 20; -fx-border-color: #E1E9F3; -fx-border-radius: 14; -fx-effect: dropshadow(gaussian, rgba(18,49,89,0.07), 12, 0, 0, 3);">
+                        <Label text="LOTES" styleClass="indicador-titulo"/>
+                        <Label fx:id="lblTotalLotes" text="—"
+                               style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #1976D2;"/>
+                        <Label text="Lotes registrados" styleClass="subtitulo"/>
+                    </VBox>
+                    <VBox spacing="8" GridPane.columnIndex="2"
+                          style="-fx-background-color: white; -fx-background-radius: 14; -fx-padding: 20; -fx-border-color: #E1E9F3; -fx-border-radius: 14; -fx-effect: dropshadow(gaussian, rgba(18,49,89,0.07), 12, 0, 0, 3);">
+                        <Label text="PRODUCCIÓN ACTIVA" styleClass="indicador-titulo"/>
+                        <Label fx:id="lblPesoProduccion" text="— kg"
+                               style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: #079B83;"/>
+                        <Label text="Peso cosechado registrado" styleClass="subtitulo"/>
+                    </VBox>
+                    <VBox spacing="8" GridPane.columnIndex="3"
+                          style="-fx-background-color: white; -fx-background-radius: 14; -fx-padding: 20; -fx-border-color: #E1E9F3; -fx-border-radius: 14; -fx-effect: dropshadow(gaussian, rgba(18,49,89,0.07), 12, 0, 0, 3);">
+                        <Label text="INGRESOS POR VENTAS" styleClass="indicador-titulo"/>
+                        <Label fx:id="lblIngresos" text="—"
+                               style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: #009C89;"/>
+                        <Label text="Ventas no anuladas" styleClass="subtitulo"/>
+                    </VBox>
+                </GridPane>
+
+                <!-- Filtros -->
+                <VBox spacing="15" styleClass="tarjeta">
+                    <HBox alignment="CENTER_LEFT">
+                        <VBox spacing="5">
+                            <Label text="Generar reporte" styleClass="seccion-titulo"/>
+                            <Label text="Elige el módulo y, si deseas, un período de consulta."
+                                   styleClass="subtitulo"/>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label text="FILTROS" styleClass="etiqueta-superior"/>
+                    </HBox>
+                    <Separator/>
+                    <GridPane hgap="14" vgap="9">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="40"/>
+                            <ColumnConstraints percentWidth="30"/>
+                            <ColumnConstraints percentWidth="30"/>
+                        </columnConstraints>
+                        <Label text="Tipo de reporte" styleClass="campo-titulo"
+                               GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <Label text="Desde" styleClass="campo-titulo"
+                               GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <Label text="Hasta" styleClass="campo-titulo"
+                               GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                        <ComboBox fx:id="cmbTipoReporte" maxWidth="Infinity"
+                                  promptText="Seleccione un módulo" styleClass="campo"
+                                  GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <DatePicker fx:id="dpDesde" maxWidth="Infinity" styleClass="campo"
+                                    GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <DatePicker fx:id="dpHasta" maxWidth="Infinity" styleClass="campo"
+                                    GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                    </GridPane>
+                    <HBox spacing="12" alignment="CENTER_LEFT">
+                        <Button fx:id="btnGenerar" text="Generar reporte"
+                                onAction="#generarReporte" styleClass="boton-primario"
+                                style="-fx-min-width: 170; -fx-min-height: 43;"/>
+                        <Button text="Limpiar filtros" onAction="#limpiarFiltros"
+                                styleClass="boton-limpiar"
+                                style="-fx-min-width: 135; -fx-min-height: 43;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label text="Deja las fechas vacías para consultar todos los registros."
+                               styleClass="subtitulo" wrapText="true"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Vista previa -->
+                <VBox spacing="14" styleClass="tarjeta">
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <VBox spacing="5">
+                            <Label text="Vista previa del reporte" styleClass="seccion-titulo"/>
+                            <Label fx:id="lblDescripcionReporte"
+                                   text="Selecciona un módulo y pulsa Generar reporte."
+                                   styleClass="subtitulo"/>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="lblTotalFilas" text="0 registros"
+                               styleClass="etiqueta-superior"/>
+                    </HBox>
+                    <TextField fx:id="txtBuscar" promptText="Buscar dentro del reporte..."
+                               styleClass="campo"/>
+                    <TableView fx:id="tablaReporte" prefHeight="350" minHeight="275">
+                        <columnResizePolicy>
+                            <TableView fx:constant="UNCONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                        <placeholder>
+                            <Label text="El reporte aparecerá aquí cuando se genere."/>
+                        </placeholder>
+                    </TableView>
+                    <Separator/>
+                    <HBox spacing="12" alignment="CENTER_LEFT">
+                        <Label text="EXPORTACIÓN" styleClass="indicador-titulo"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <!-- Se habilitarán cuando implementemos los exportadores. -->
+                        <Button fx:id="btnExportarPdf" text="Exportar PDF"
+                                disable="true" styleClass="boton-secundario"
+                                style="-fx-min-width: 135; -fx-min-height: 42;"/>
+                        <Button fx:id="btnExportarExcel" text="Exportar Excel"
+                                disable="true" styleClass="boton-secundario"
+                                style="-fx-min-width: 135; -fx-min-height: 42;"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

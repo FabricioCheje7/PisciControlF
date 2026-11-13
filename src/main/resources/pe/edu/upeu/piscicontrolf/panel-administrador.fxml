@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane
+        stylesheets="@piscicontrol.css"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="pe.edu.upeu.piscicontrolf.controller.PanelAdministradorController"
+        prefWidth="1100"
+        prefHeight="700"
+        style="-fx-background-color: #F3F6FA;">
+
+    <!-- ENCABEZADO -->
+    <top>
+        <HBox alignment="CENTER_LEFT"
+              spacing="15"
+              style="-fx-background-color: #0D4F8B;
+                     -fx-padding: 18;">
+
+            <VBox spacing="5">
+                <Label text="PisciControlF"
+                       style="-fx-text-fill: white;
+                              -fx-font-size: 27px;
+                              -fx-font-weight: bold;"/>
+
+                <Label text="Sistema de Gestión de Piscigranja"
+                       style="-fx-text-fill: white;
+                              -fx-font-size: 14px;"/>
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Label text="Administrador"
+                   style="-fx-text-fill: white;
+                          -fx-font-size: 16px;"/>
+        </HBox>
+    </top>
+
+    <!-- MENU LATERAL -->
+    <left>
+        <VBox spacing="7"
+              prefWidth="220"
+              style="-fx-background-color: #E8EDF4;
+                     -fx-padding: 12;
+                     -fx-border-color: #CBD5E1;">
+
+            <Label text="MENÚ PRINCIPAL"
+                   style="-fx-font-weight: bold;
+                          -fx-text-fill: #194E7A;
+                          -fx-padding: 10;"/>
+
+            <Button text="Inicio"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: #A6CCF5;"/>
+
+            <Button text="Estanques"
+                    onAction="#abrirEstanques"
+                    maxWidth="Infinity"/>
+
+            <Button text="Lotes"
+                    onAction="#abrirLotes"
+                    maxWidth="Infinity"/>
+
+            <Button text="Alimentación"
+                    onAction="#abrirAlimentacion"
+                    maxWidth="Infinity"/>
+
+            <Button text="Crecimiento"
+                    onAction="#abrirCrecimiento"
+                    maxWidth="Infinity"/>
+
+            <Button text="Calidad del agua"
+                    onAction="#abrirAgua"
+                    maxWidth="Infinity"/>
+
+            <Button text="Mortalidad / Sanidad"
+                    onAction="#abrirMortalidad"
+                    maxWidth="Infinity"/>
+
+            <Button text="Producción"
+                    onAction="#abrirProduccion"
+                    maxWidth="Infinity"/>
+
+            <Button text="Ventas"
+                    onAction="#abrirVentas"
+                    maxWidth="Infinity"/>
+
+            <Button text="Reportes"
+                    onAction="#abrirReportes"
+                    maxWidth="Infinity"/>
+
+            <Button text="Usuarios"
+                    onAction="#abrirUsuarios"
+                    maxWidth="Infinity"/>
+
+            <Button text="Configuración"
+                    onAction="#abrirConfiguracion"
+                    maxWidth="Infinity"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Button text="Cerrar sesión"
+                    onAction="#cerrarSesion"
+                    maxWidth="Infinity"
+                    style="-fx-text-fill: #B42318;"/>
+        </VBox>
+    </left>
+
+    <!-- CONTENIDO -->
+    <center>
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER">
+
+            <VBox spacing="20"
+                  style="-fx-padding: 25;
+                         -fx-background-color: #F3F6FA;">
+
+                <Label text="Panel de Administración"
+                       style="-fx-font-size: 25px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: #153E66;"/>
+
+                <Label text="Seleccione el módulo que desea administrar."
+                       style="-fx-font-size: 14px;"/>
+
+                <Separator/>
+
+                <!-- CUADROS DE MODULOS -->
+                <GridPane hgap="15" vgap="15">
+
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="33.3"/>
+                        <ColumnConstraints percentWidth="33.3"/>
+                        <ColumnConstraints percentWidth="33.4"/>
+                    </columnConstraints>
+
+                    <!-- FILA 1 -->
+                    <Button text="Estanques"
+                            onAction="#abrirEstanques"
+                            maxWidth="Infinity"
+                            prefHeight="105"
+                            styleClass="tarjeta-admin"
+                            GridPane.columnIndex="0"
+                            GridPane.rowIndex="0"/>
+
+                    <Button text="Lotes"
+                            onAction="#abrirLotes"
+                            maxWidth="Infinity"
+                            prefHeight="105"
+                            styleClass="tarjeta-admin"
+                            GridPane.columnIndex="1"
+                            GridPane.rowIndex="0"/>
+
+                    <Button text="Alimentación"
+                            onAction="#abrirAlimentacion"
+                            maxWidth="Infinity"
+                            prefHeight="105"
+                            styleClass="tarjeta-admin"
+                            GridPane.columnIndex="2"
+                            GridPane.rowIndex="0"/>
+
+                    <!-- FILA 2 -->
+                    <Button text="Crecimiento"
+                            onAction="#abrirCrecimiento"
+                            maxWidth="Infinity"
+                            prefHeight="105"
+                            styleClass="tarjeta-admin"
+                            GridPane.columnIndex="0"
+                            GridPane.rowIndex="1"/>
+
+                    <Button text="Calidad del agua"
+                            onAction="#abrirAgua"
+                            maxWidth="Infinity"
+                            prefHeight="105"
+                            styleClass="tarjeta-admin"
+                            GridPane.columnIndex="1"
+                            GridPane.rowIndex="1"/>
+
+                    <Button text="Mortalidad / Sanidad"
+                            onAction="#abrirMortalidad"
+                            maxWidth="Infinity"
+                            prefHeight="105"
+                            styleClass="tarjeta-admin"
+                            GridPane.columnIndex="2"
+                            GridPane.rowIndex="1"/>
+
+                    <!-- FILA 3 -->
+                    <Button text="Producción"
+                            onAction="#abrirProduccion"
+                            maxWidth="Infinity"
+                            prefHeight="105"
+                            styleClass="tarjeta-admin"
+                            GridPane.columnIndex="0"
+                            GridPane.rowIndex="2"/>
+
+                    <Button text="Ventas"
+                            onAction="#abrirVentas"
+                            maxWidth="Infinity"
+                            prefHeight="105"
+                            styleClass="tarjeta-admin"
+                            GridPane.columnIndex="1"
+                            GridPane.rowIndex="2"/>
+
+                    <Button text="Reportes"
+                            onAction="#abrirReportes"
+                            maxWidth="Infinity"
+                            prefHeight="105"
+                            styleClass="tarjeta-admin"
+                            GridPane.columnIndex="2"
+                            GridPane.rowIndex="2"/>
+
+                </GridPane>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <!-- PIE -->
+    <bottom>
+        <HBox alignment="CENTER_LEFT"
+              spacing="20"
+              style="-fx-background-color: #E3EAF2;
+                     -fx-padding: 12;">
+
+            <Label text="Usuario: Administrador"/>
+
+            <Label text="Rol: ADMINISTRADOR"/>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Label text="PisciControlF v1.0"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

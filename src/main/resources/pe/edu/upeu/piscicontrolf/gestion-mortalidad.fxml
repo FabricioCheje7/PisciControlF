@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="pe.edu.upeu.piscicontrolf.controller.MortalidadController"
+        prefWidth="1350"
+        prefHeight="820"
+        stylesheets="@piscicontrol.css"
+        styleClass="pantalla">
+
+    <!-- MENU LATERAL -->
+    <left>
+        <VBox prefWidth="240"
+              spacing="10"
+              styleClass="menu-lateral">
+
+            <Label text="PisciControlF"
+                   styleClass="logo"/>
+
+            <Label text="Gestión inteligente de piscigranjas"
+                   wrapText="true"
+                   styleClass="logo-subtitulo"/>
+
+            <Separator/>
+
+            <Label text="OPERACIONES"
+                   styleClass="menu-pie"/>
+
+            <Button text="Panel principal"
+                    onAction="#volverAlPanel"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Gestión de estanques"
+                    onAction="#abrirEstanques"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Lotes de truchas"
+                    onAction="#abrirLotes"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Alimentación"
+                    onAction="#abrirAlimentacion"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Crecimiento"
+                    onAction="#abrirCrecimiento"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Calidad del agua"
+                    onAction="#abrirCalidadAgua"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Mortalidad y Sanidad"
+                    maxWidth="Infinity"
+                    styleClass="menu-activo"/>
+
+            <Button text="Producción"
+                    onAction="#abrirProduccion"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Ventas"
+                    onAction="#abrirVentas"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Reportes"
+                    onAction="#abrirReportes"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="PisciControlF | Versión 1.0"
+                   styleClass="menu-pie"/>
+        </VBox>
+    </left>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <center>
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    style="-fx-background: #F3F7FC;">
+
+            <VBox spacing="20"
+                  styleClass="contenido">
+
+                <!-- ENCABEZADO -->
+                <HBox alignment="CENTER_LEFT"
+                      spacing="12">
+
+                    <VBox spacing="5">
+                        <Label text="Gestión de Mortalidad y Sanidad"
+                               styleClass="titulo"/>
+
+                        <Label
+                                text="Seguimiento de mortalidad, incidencias y salud de las truchas"
+                                styleClass="subtitulo"/>
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Label text="CONTROL SANITARIO"
+                           styleClass="etiqueta-superior"/>
+                </HBox>
+
+                <!-- INDICADORES -->
+                <HBox spacing="15">
+
+                    <VBox spacing="7"
+                          HBox.hgrow="ALWAYS"
+                          styleClass="tarjeta-indicador">
+                        <Label text="TOTAL DE INCIDENCIAS"
+                               styleClass="indicador-titulo"/>
+                        <Label fx:id="lblTotalIncidencias"
+                               text="0"
+                               styleClass="indicador-numero"/>
+                    </VBox>
+
+                    <VBox spacing="7"
+                          HBox.hgrow="ALWAYS"
+                          styleClass="tarjeta-indicador">
+                        <Label text="TRUCHAS MUERTAS"
+                               styleClass="indicador-titulo"/>
+                        <Label fx:id="lblTotalMuertas"
+                               text="0"
+                               styleClass="indicador-numero"/>
+                    </VBox>
+
+                    <VBox spacing="7"
+                          HBox.hgrow="ALWAYS"
+                          styleClass="tarjeta-indicador">
+                        <Label text="CASOS ABIERTOS"
+                               styleClass="indicador-titulo"/>
+                        <Label fx:id="lblCasosAbiertos"
+                               text="0"
+                               styleClass="indicador-numero"/>
+                    </VBox>
+                </HBox>
+
+                <!-- FORMULARIO DE REGISTRO -->
+                <VBox spacing="15"
+                      styleClass="tarjeta">
+
+                    <Label text="Registrar incidencia sanitaria"
+                           styleClass="seccion-titulo"/>
+
+                    <Label
+                            text="Registra mortalidad o situaciones que requieran seguimiento sanitario."
+                            styleClass="subtitulo"/>
+
+                    <Separator/>
+
+                    <GridPane hgap="18" vgap="12">
+
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50"/>
+                            <ColumnConstraints percentWidth="50"/>
+                        </columnConstraints>
+
+                        <Label text="Lote de truchas"
+                               styleClass="campo-titulo"
+                               GridPane.columnIndex="0"
+                               GridPane.rowIndex="0"/>
+
+                        <Label text="Fecha de incidencia"
+                               styleClass="campo-titulo"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="0"/>
+
+                        <ComboBox fx:id="cmbLote"
+                                  promptText="Seleccione un lote"
+                                  maxWidth="Infinity"
+                                  styleClass="campo"
+                                  GridPane.columnIndex="0"
+                                  GridPane.rowIndex="1"/>
+
+                        <DatePicker fx:id="dpFecha"
+                                    maxWidth="Infinity"
+                                    styleClass="campo"
+                                    GridPane.columnIndex="1"
+                                    GridPane.rowIndex="1"/>
+
+                        <Label text="Tipo de incidencia"
+                               styleClass="campo-titulo"
+                               GridPane.columnIndex="0"
+                               GridPane.rowIndex="2"/>
+
+                        <Label text="Cantidad de truchas muertas"
+                               styleClass="campo-titulo"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="2"/>
+
+                        <ComboBox fx:id="cmbTipoIncidencia"
+                                  promptText="Mortalidad o Sanidad"
+                                  maxWidth="Infinity"
+                                  styleClass="campo"
+                                  GridPane.columnIndex="0"
+                                  GridPane.rowIndex="3"/>
+
+                        <TextField fx:id="txtCantidadMuertas"
+                                   promptText="Ej. 5"
+                                   styleClass="campo"
+                                   GridPane.columnIndex="1"
+                                   GridPane.rowIndex="3"/>
+
+                        <Label text="Posible causa"
+                               styleClass="campo-titulo"
+                               GridPane.columnIndex="0"
+                               GridPane.rowIndex="4"/>
+
+                        <Label text="Estado del seguimiento"
+                               styleClass="campo-titulo"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="4"/>
+
+                        <ComboBox fx:id="cmbCausa"
+                                  promptText="Seleccione una causa"
+                                  maxWidth="Infinity"
+                                  styleClass="campo"
+                                  GridPane.columnIndex="0"
+                                  GridPane.rowIndex="5"/>
+
+                        <ComboBox fx:id="cmbEstado"
+                                  promptText="Seleccione un estado"
+                                  maxWidth="Infinity"
+                                  styleClass="campo"
+                                  GridPane.columnIndex="1"
+                                  GridPane.rowIndex="5"/>
+
+                    </GridPane>
+
+                    <Label text="Acciones realizadas"
+                           styleClass="campo-titulo"/>
+
+                    <TextArea fx:id="txtAcciones"
+                              promptText="Describa las medidas tomadas..."
+                              prefRowCount="2"
+                              wrapText="true"
+                              styleClass="campo"/>
+
+                    <Label text="Observaciones"
+                           styleClass="campo-titulo"/>
+
+                    <TextArea fx:id="txtObservaciones"
+                              promptText="Detalle síntomas, hallazgos u otras observaciones..."
+                              prefRowCount="2"
+                              wrapText="true"
+                              styleClass="campo"/>
+
+                    <Separator/>
+
+                    <HBox spacing="12">
+
+                        <Button fx:id="btnRegistrar"
+                                text="Registrar incidencia"
+                                onAction="#registrarIncidencia"
+                                styleClass="boton-primario"/>
+
+                        <Button fx:id="btnModificar"
+                                text="Modificar incidencia"
+                                onAction="#modificarIncidencia"
+                                styleClass="boton-secundario"/>
+
+                        <Button text="Limpiar formulario"
+                                onAction="#limpiarFormulario"
+                                styleClass="boton-limpiar"/>
+
+                    </HBox>
+                </VBox>
+
+                <!-- HISTORIAL -->
+                <VBox spacing="15"
+                      styleClass="tarjeta">
+
+                    <Label text="Historial de Mortalidad y Sanidad"
+                           styleClass="seccion-titulo"/>
+
+                    <Label
+                            text="Consulta las incidencias registradas en los lotes."
+                            styleClass="subtitulo"/>
+
+                    <TextField fx:id="txtBuscar"
+                               promptText="Buscar por lote, tipo, causa o estado..."
+                               styleClass="campo"/>
+
+                    <TableView fx:id="tablaIncidencias"
+                               prefHeight="330">
+
+                        <columnResizePolicy>
+                            <TableView fx:constant="UNCONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+
+                        <columns>
+                            <TableColumn fx:id="colId"
+                                         text="ID"
+                                         prefWidth="65"/>
+
+                            <TableColumn fx:id="colLote"
+                                         text="Lote"
+                                         prefWidth="140"/>
+
+                            <TableColumn fx:id="colFecha"
+                                         text="Fecha"
+                                         prefWidth="115"/>
+
+                            <TableColumn fx:id="colTipo"
+                                         text="Tipo"
+                                         prefWidth="125"/>
+
+                            <TableColumn fx:id="colCantidad"
+                                         text="Truchas muertas"
+                                         prefWidth="140"/>
+
+                            <TableColumn fx:id="colCausa"
+                                         text="Posible causa"
+                                         prefWidth="170"/>
+
+                            <TableColumn fx:id="colEstado"
+                                         text="Estado"
+                                         prefWidth="115"/>
+
+                            <TableColumn fx:id="colAcciones"
+                                         text="Acciones"
+                                         prefWidth="220"/>
+
+                            <TableColumn fx:id="colObservaciones"
+                                         text="Observaciones"
+                                         prefWidth="240"/>
+                        </columns>
+
+                        <placeholder>
+                            <Label text="No hay incidencias registradas"/>
+                        </placeholder>
+
+                    </TableView>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

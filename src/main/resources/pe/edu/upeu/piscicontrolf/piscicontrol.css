@@ -1,0 +1,1417 @@
+/* PISCICONTROL - ESTILO PROFESIONAL */
+
+.root {
+    -fx-font-family: "Segoe UI", Arial;
+}
+
+.pantalla {
+    -fx-background-color: #F3F7FC;
+}
+
+/* MENU LATERAL */
+.menu-lateral {
+    -fx-background-color: #102B50;
+    -fx-padding: 30 16;
+}
+
+.logo {
+    -fx-text-fill: white;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+}
+
+.logo-subtitulo {
+    -fx-text-fill: #B9CBE3;
+    -fx-font-size: 12px;
+}
+
+.menu-boton,
+.menu-activo {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 13 16;
+    -fx-font-size: 14px;
+    -fx-background-radius: 9;
+    -fx-cursor: hand;
+}
+
+.menu-boton {
+    -fx-background-color: transparent;
+    -fx-text-fill: #D5E2F3;
+}
+
+.menu-boton:hover {
+    -fx-background-color: #204772;
+}
+
+.menu-activo {
+    -fx-background-color: #2784E8;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.menu-pie {
+    -fx-text-fill: #A8C0DA;
+    -fx-font-size: 11px;
+}
+
+/* CONTENIDO */
+.contenido {
+    -fx-padding: 30;
+}
+
+.titulo {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #173657;
+}
+
+.subtitulo {
+    -fx-font-size: 12px;
+    -fx-text-fill: #7B8DA5;
+}
+
+.etiqueta-superior {
+    -fx-background-color: #E2EFFD;
+    -fx-padding: 9 16;
+    -fx-background-radius: 20;
+    -fx-text-fill: #236AB8;
+}
+
+/* TARJETAS */
+.tarjeta,
+.tarjeta-indicador {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-padding: 22;
+    -fx-effect: dropshadow(
+        gaussian, rgba(18, 49, 89, 0.08),
+        14, 0, 0, 3
+    );
+}
+
+.tarjeta-indicador {
+    -fx-min-height: 100;
+}
+
+.indicador-titulo {
+    -fx-font-size: 12px;
+    -fx-text-fill: #71849B;
+    -fx-font-weight: bold;
+}
+
+.indicador-numero {
+    -fx-font-size: 30px;
+    -fx-text-fill: #1678DC;
+    -fx-font-weight: bold;
+}
+
+.indicador-texto {
+    -fx-text-fill: #71849B;
+}
+
+.seccion-titulo {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #183D65;
+}
+
+/* CAMPOS */
+.campo-titulo {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #425A74;
+}
+
+.campo {
+    -fx-background-color: #F8FAFE;
+    -fx-background-radius: 8;
+    -fx-border-color: #DCE5F0;
+    -fx-border-radius: 8;
+    -fx-padding: 11;
+}
+
+.campo:focused {
+    -fx-border-color: #2784E8;
+}
+
+/* BOTONES */
+.boton-primario,
+.boton-secundario,
+.boton-peligro,
+.boton-limpiar {
+    -fx-padding: 12;
+    -fx-background-radius: 9;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.boton-primario {
+    -fx-background-color: #1976D2;
+    -fx-text-fill: white;
+}
+
+.boton-primario:hover {
+    -fx-background-color: #105FAF;
+}
+
+.boton-secundario {
+    -fx-background-color: #E1EFFF;
+    -fx-text-fill: #175FAD;
+}
+
+.boton-peligro {
+    -fx-background-color: #FDE9E9;
+    -fx-text-fill: #C63636;
+}
+
+.boton-limpiar {
+    -fx-background-color: #EFF2F7;
+    -fx-text-fill: #536B85;
+}
+
+/* TABLA */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #E1E9F3;
+    -fx-border-radius: 8;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #EAF2FC;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-padding: 12 6;
+}
+
+.table-row-cell:filled:selected {
+    -fx-background-color: #D9EAFD;
+}
+
+.table-row-cell:filled:selected .text {
+    -fx-fill: #173657;
+}
+
+/* PANEL PRINCIPAL PROFESIONAL */
+
+/* Encabezado de bienvenida */
+.bienvenida-panel {
+    -fx-background-color: linear-gradient(
+        to right, #102B50, #1976D2
+    );
+    -fx-background-radius: 16;
+    -fx-padding: 28 32;
+    -fx-spacing: 10;
+    -fx-effect: dropshadow(
+        gaussian, rgba(16, 43, 80, 0.15),
+        15, 0, 0, 5
+    );
+}
+
+.bienvenida-etiqueta {
+    -fx-text-fill: #B9DCFF;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.bienvenida-titulo {
+    -fx-text-fill: white;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+}
+
+.bienvenida-descripcion {
+    -fx-text-fill: #E0EDFC;
+    -fx-font-size: 13px;
+}
+
+/* Tarjetas estadísticas */
+#cardEstanques,
+#cardLotes,
+#cardTruchas {
+    -fx-min-height: 155;
+    -fx-border-radius: 14;
+    -fx-border-width: 0 0 0 5;
+}
+
+#cardEstanques {
+    -fx-border-color: #1976D2;
+}
+
+#cardLotes {
+    -fx-border-color: #10A7A0;
+}
+
+#cardTruchas {
+    -fx-border-color: #E9A23B;
+}
+
+#cardEstanques .indicador-numero {
+    -fx-text-fill: #1976D2;
+}
+
+#cardLotes .indicador-numero {
+    -fx-text-fill: #10A7A0;
+}
+
+#cardTruchas .indicador-numero {
+    -fx-text-fill: #D58A20;
+}
+
+/* Barra de ocupación */
+.progress-bar {
+    -fx-pref-height: 13;
+}
+
+.progress-bar .track {
+    -fx-background-color: #E8EFF8;
+    -fx-background-radius: 10;
+}
+
+.progress-bar .bar {
+    -fx-background-color: #1976D2;
+    -fx-background-radius: 10;
+}
+
+/* GRAFICO ESTADISTICO */
+
+#graficoTruchas {
+    -fx-background-color: white;
+    -fx-padding: 12;
+}
+
+#graficoTruchas .chart-plot-background {
+    -fx-background-color: #F8FAFE;
+}
+
+#graficoTruchas .chart-bar {
+    -fx-bar-fill: #1976D2;
+}
+
+#graficoTruchas .chart-title {
+    -fx-text-fill: #173657;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+/* CUADROS DEL PANEL ADMINISTRADOR */
+
+.tarjeta-admin {
+    -fx-background-color: #E2ECF8;
+    -fx-border-color: #A4BDD8;
+    -fx-border-width: 1;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #143D69;
+    -fx-cursor: hand;
+}
+
+.tarjeta-admin:hover {
+    -fx-background-color: #C7DDF5;
+}
+
+
+/* ==========================================
+   PISCICONTROLF
+   DISEÑO PROFESIONAL - GESTIÓN DE ESTANQUES
+   ========================================== */
+
+/* FONDO PRINCIPAL */
+
+#pantallaEstanques {
+    -fx-background-color: #F3F7FC;
+}
+
+/* MENÚ LATERAL CORPORATIVO */
+
+#pantallaEstanques .menu-lateral {
+    -fx-background-color: #102B50;
+    -fx-padding: 25 16;
+}
+
+#pantallaEstanques .logo {
+    -fx-text-fill: white;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+}
+
+#pantallaEstanques .logo-subtitulo {
+    -fx-text-fill: #B9CBE3;
+}
+
+#pantallaEstanques .menu-boton {
+    -fx-background-color: transparent;
+    -fx-text-fill: #D5E2F3;
+    -fx-background-radius: 8;
+    -fx-border-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+}
+
+#pantallaEstanques .menu-boton:hover {
+    -fx-background-color: #204772;
+}
+
+#pantallaEstanques .menu-activo {
+    -fx-background-color: #2784E8;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* ENCABEZADOS */
+
+#pantallaEstanques .titulo {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #173657;
+}
+
+#pantallaEstanques .subtitulo {
+    -fx-text-fill: #71849B;
+    -fx-font-size: 13px;
+}
+
+/* TARJETAS PROFESIONALES */
+
+#pantallaEstanques .tarjeta,
+#pantallaEstanques .tarjeta-indicador {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-color: #E3EAF3;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(18, 49, 89, 0.07),
+        12, 0, 0, 3
+    );
+}
+
+/* CAMPOS DEL FORMULARIO */
+
+#pantallaEstanques .text-field {
+    -fx-background-color: #F8FAFE;
+    -fx-background-radius: 7;
+    -fx-border-color: #D5E1EE;
+    -fx-border-radius: 7;
+    -fx-pref-height: 40;
+    -fx-font-size: 13px;
+    -fx-padding: 10;
+}
+
+#pantallaEstanques .text-field:focused {
+    -fx-border-color: #2784E8;
+    -fx-border-width: 2;
+}
+
+#pantallaEstanques .combo-box {
+    -fx-background-color: #F8FAFE;
+    -fx-border-color: #D5E1EE;
+    -fx-border-radius: 7;
+    -fx-background-radius: 7;
+    -fx-pref-height: 40;
+}
+
+/* BOTONES DEL FORMULARIO */
+
+#pantallaEstanques .boton-primario {
+    -fx-background-color: #1976D2;
+    -fx-text-fill: white;
+    -fx-background-radius: 7;
+    -fx-cursor: hand;
+}
+
+#pantallaEstanques .boton-primario:hover {
+    -fx-background-color: #105FAF;
+}
+
+#pantallaEstanques .boton-secundario {
+    -fx-background-color: #DDEEFF;
+    -fx-text-fill: #155FA9;
+    -fx-background-radius: 7;
+    -fx-cursor: hand;
+}
+
+#pantallaEstanques .boton-peligro {
+    -fx-background-color: #FDE9E9;
+    -fx-text-fill: #C63636;
+    -fx-background-radius: 7;
+    -fx-cursor: hand;
+}
+
+#pantallaEstanques .boton-limpiar {
+    -fx-background-color: #EFF2F7;
+    -fx-text-fill: #536B85;
+    -fx-background-radius: 7;
+    -fx-cursor: hand;
+}
+
+/* TABLA PROFESIONAL */
+
+#pantallaEstanques .table-view {
+    -fx-background-color: white;
+    -fx-border-color: #E1E9F3;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+#pantallaEstanques .table-view
+.column-header-background {
+    -fx-background-color: #EAF2FC;
+}
+
+#pantallaEstanques .table-view
+.column-header {
+    -fx-background-color: #EAF2FC;
+    -fx-pref-height: 42;
+    -fx-border-color: #DAE5F1;
+    -fx-border-width: 0 0 1 0;
+}
+
+#pantallaEstanques .table-view
+.column-header .label {
+    -fx-text-fill: #173657;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+#pantallaEstanques .table-row-cell:odd {
+    -fx-background-color: #F8FAFD;
+}
+
+#pantallaEstanques .table-row-cell:even {
+    -fx-background-color: white;
+}
+
+#pantallaEstanques .table-row-cell:filled:selected {
+    -fx-background-color: #D9EAFD;
+}
+
+#pantallaEstanques .table-row-cell:filled:selected
+.table-cell {
+    -fx-text-fill: #173657;
+}
+
+/* BARRA DE BÚSQUEDA */
+
+#pantallaEstanques .text-field:focused {
+    -fx-prompt-text-fill: #94A8BE;
+}
+
+/* ======================================
+   DETALLES PROFESIONALES - ESTANQUES
+   ====================================== */
+
+/* INDICADORES */
+
+#pantallaEstanques .numero-activos {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #079B83;
+}
+
+#pantallaEstanques .numero-inactivos {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #D18A35;
+}
+
+/* BOTONES DE ACCIONES */
+
+#pantallaEstanques .boton-primario,
+#pantallaEstanques .boton-secundario,
+#pantallaEstanques .boton-peligro,
+#pantallaEstanques .boton-limpiar {
+    -fx-min-height: 43;
+    -fx-font-size: 12px;
+}
+
+#pantallaEstanques .boton-secundario:hover {
+    -fx-background-color: #C6E2FF;
+}
+
+#pantallaEstanques .boton-peligro:hover {
+    -fx-background-color: #FBD5D5;
+}
+
+#pantallaEstanques .boton-limpiar:hover {
+    -fx-background-color: #DEE5EF;
+}
+
+/* TABLA */
+
+#pantallaEstanques .table-row-cell {
+    -fx-cell-size: 39px;
+}
+
+#pantallaEstanques .table-view .table-cell {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 10;
+    -fx-text-fill: #304963;
+}
+
+#pantallaEstanques .table-view:focused {
+    -fx-background-insets: 0;
+}
+
+/* MENU */
+
+#pantallaEstanques .menu-boton:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* ESTADOS DE ESTANQUES */
+
+#pantallaEstanques .estado-etiqueta {
+    -fx-padding: 5 12;
+    -fx-background-radius: 15;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+
+#pantallaEstanques .estado-activo {
+    -fx-background-color: #E0F5E9;
+    -fx-text-fill: #15803D;
+}
+
+#pantallaEstanques .estado-inactivo {
+    -fx-background-color: #ECEFF3;
+    -fx-text-fill: #64748B;
+}
+
+#pantallaEstanques .estado-desconocido {
+    -fx-background-color: #FFF2D8;
+    -fx-text-fill: #A16207;
+}
+
+/* ==========================================
+   PISCICONTROLF - GESTIÓN DE LOTES
+   ========================================== */
+
+/* FONDO Y CONTENEDOR */
+
+#pantallaLotes {
+    -fx-background-color: #F3F7FC;
+}
+
+#pantallaLotes .scroll-contenido {
+    -fx-background-color: transparent;
+    -fx-background: #F3F7FC;
+    -fx-border-color: transparent;
+}
+
+#pantallaLotes .scroll-contenido
+.viewport {
+    -fx-background-color: #F3F7FC;
+}
+
+/* TARJETAS */
+
+#pantallaLotes .tarjeta {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-border-color: #E1E9F3;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 22;
+}
+
+/* CAMPOS */
+
+#pantallaLotes .campo {
+    -fx-background-color: #F8FAFE;
+    -fx-border-color: #D5E1EE;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+#pantallaLotes .text-field,
+#pantallaLotes .combo-box,
+#pantallaLotes .date-picker {
+    -fx-pref-height: 40;
+}
+
+#pantallaLotes .text-field:focused,
+#pantallaLotes .text-area:focused {
+    -fx-border-color: #2784E8;
+    -fx-border-width: 2;
+}
+
+#pantallaLotes .text-area .content {
+    -fx-background-color: #F8FAFE;
+}
+
+/* BOTONES */
+
+#pantallaLotes .boton-primario,
+#pantallaLotes .boton-secundario,
+#pantallaLotes .boton-limpiar {
+    -fx-min-height: 43;
+    -fx-font-size: 12px;
+}
+
+#pantallaLotes .boton-primario:hover {
+    -fx-background-color: #105FAF;
+}
+
+#pantallaLotes .boton-secundario:hover {
+    -fx-background-color: #C6E2FF;
+}
+
+#pantallaLotes .boton-limpiar:hover {
+    -fx-background-color: #DEE5EF;
+}
+
+/* INDICADORES */
+
+#pantallaLotes .valor-capacidad {
+    -fx-font-size: 27px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1976D2;
+}
+
+#pantallaLotes .valor-ocupadas {
+    -fx-font-size: 23px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #D58A20;
+}
+
+#pantallaLotes .valor-disponibles {
+    -fx-font-size: 23px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #079B83;
+}
+
+/* BARRA DE OCUPACIÓN */
+
+#pantallaLotes .progress-bar {
+    -fx-pref-height: 15;
+}
+
+#pantallaLotes .progress-bar .track {
+    -fx-background-color: #E7EEF7;
+    -fx-background-radius: 10;
+}
+
+#pantallaLotes .progress-bar .bar {
+    -fx-background-color: #10A7A0;
+    -fx-background-radius: 10;
+}
+
+/* TABLA */
+
+#pantallaLotes .table-view {
+    -fx-background-color: white;
+    -fx-border-color: #E1E9F3;
+    -fx-border-radius: 8;
+}
+
+#pantallaLotes .table-view
+.column-header-background {
+    -fx-background-color: #EAF2FC;
+}
+
+#pantallaLotes .table-view
+.column-header {
+    -fx-background-color: #EAF2FC;
+    -fx-pref-height: 42;
+}
+
+#pantallaLotes .table-view
+.column-header .label {
+    -fx-text-fill: #173657;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+#pantallaLotes .table-row-cell {
+    -fx-cell-size: 39px;
+}
+
+#pantallaLotes .table-row-cell:odd {
+    -fx-background-color: #F8FAFD;
+}
+
+#pantallaLotes .table-row-cell:even {
+    -fx-background-color: white;
+}
+
+#pantallaLotes .table-row-cell:filled:selected {
+    -fx-background-color: #D9EAFD;
+}
+
+#pantallaLotes .table-row-cell:filled:selected
+.table-cell {
+    -fx-text-fill: #173657;
+}
+
+/* OPCIONES TODAVÍA NO CONECTADAS */
+
+#pantallaLotes .menu-boton:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* =========================================
+   PISCICONTROLF - GESTIÓN DE ALIMENTACIÓN
+   ========================================= */
+
+#pantallaAlimentacion {
+    -fx-background-color: #F3F7FC;
+}
+
+/* SCROLL */
+
+#pantallaAlimentacion .scroll-contenido {
+    -fx-background-color: transparent;
+    -fx-background: #F3F7FC;
+    -fx-border-color: transparent;
+}
+
+#pantallaAlimentacion .scroll-contenido .viewport {
+    -fx-background-color: #F3F7FC;
+}
+
+/* TARJETAS */
+
+#pantallaAlimentacion .tarjeta,
+#pantallaAlimentacion .tarjeta-indicador {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-border-color: #E1E9F3;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 22;
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(18, 49, 89, 0.07),
+        12, 0, 0, 3
+    );
+}
+
+/* CAMPOS */
+
+#pantallaAlimentacion .campo {
+    -fx-background-color: #F8FAFE;
+    -fx-border-color: #D5E1EE;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+#pantallaAlimentacion .text-field,
+#pantallaAlimentacion .combo-box,
+#pantallaAlimentacion .date-picker {
+    -fx-pref-height: 40;
+}
+
+#pantallaAlimentacion .text-field:focused,
+#pantallaAlimentacion .text-area:focused {
+    -fx-border-color: #2784E8;
+    -fx-border-width: 2;
+}
+
+#pantallaAlimentacion .text-area .content {
+    -fx-background-color: #F8FAFE;
+}
+
+/* BOTONES */
+
+#pantallaAlimentacion .boton-primario,
+#pantallaAlimentacion .boton-secundario,
+#pantallaAlimentacion .boton-limpiar {
+    -fx-min-height: 43;
+    -fx-font-size: 12px;
+}
+
+#pantallaAlimentacion .boton-primario:hover {
+    -fx-background-color: #105FAF;
+}
+
+#pantallaAlimentacion .boton-secundario:hover {
+    -fx-background-color: #C6E2FF;
+}
+
+#pantallaAlimentacion .boton-limpiar:hover {
+    -fx-background-color: #DEE5EF;
+}
+
+/* INDICADOR */
+
+#pantallaAlimentacion .indicador-numero {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1976D2;
+}
+
+/* TABLA */
+
+#pantallaAlimentacion .table-view {
+    -fx-background-color: white;
+    -fx-border-color: #E1E9F3;
+    -fx-border-radius: 8;
+}
+
+#pantallaAlimentacion .table-view
+.column-header-background {
+    -fx-background-color: #EAF2FC;
+}
+
+#pantallaAlimentacion .table-view
+.column-header {
+    -fx-background-color: #EAF2FC;
+    -fx-pref-height: 42;
+}
+
+#pantallaAlimentacion .table-view
+.column-header .label {
+    -fx-text-fill: #173657;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+#pantallaAlimentacion .table-row-cell {
+    -fx-cell-size: 39px;
+}
+
+#pantallaAlimentacion .table-row-cell:odd {
+    -fx-background-color: #F8FAFD;
+}
+
+#pantallaAlimentacion .table-row-cell:even {
+    -fx-background-color: white;
+}
+
+#pantallaAlimentacion .table-row-cell:filled:selected {
+    -fx-background-color: #D9EAFD;
+}
+
+#pantallaAlimentacion .table-row-cell:filled:selected
+.table-cell {
+    -fx-text-fill: #173657;
+}
+
+/* MENÚ */
+
+#pantallaAlimentacion .menu-boton:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* =========================================
+   PISCICONTROLF - GESTIÓN DE CRECIMIENTO
+   ========================================= */
+
+/* FONDO */
+
+#pantallaCrecimiento {
+    -fx-background-color: #F3F7FC;
+}
+
+/* CONTENEDOR */
+
+#pantallaCrecimiento .scroll-contenido {
+    -fx-background-color: transparent;
+    -fx-background: #F3F7FC;
+    -fx-border-color: transparent;
+}
+
+#pantallaCrecimiento .scroll-contenido .viewport {
+    -fx-background-color: #F3F7FC;
+}
+
+/* TARJETAS */
+
+#pantallaCrecimiento .tarjeta,
+#pantallaCrecimiento .tarjeta-indicador {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-border-color: #E1E9F3;
+    -fx-border-radius: 14;
+    -fx-padding: 22;
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(18, 49, 89, 0.07),
+        12, 0, 0, 3
+    );
+}
+
+/* INDICADORES */
+
+#pantallaCrecimiento .indicador-peso {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #079B83;
+}
+
+#pantallaCrecimiento .indicador-talla {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1976D2;
+}
+
+/* FORMULARIO */
+
+#pantallaCrecimiento .campo {
+    -fx-background-color: #F8FAFE;
+    -fx-border-color: #D5E1EE;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+#pantallaCrecimiento .text-field,
+#pantallaCrecimiento .combo-box,
+#pantallaCrecimiento .date-picker {
+    -fx-pref-height: 40;
+}
+
+#pantallaCrecimiento .text-field:focused,
+#pantallaCrecimiento .text-area:focused {
+    -fx-border-color: #2784E8;
+    -fx-border-width: 2;
+}
+
+#pantallaCrecimiento .text-area .content {
+    -fx-background-color: #F8FAFE;
+}
+
+/* BOTONES */
+
+#pantallaCrecimiento .boton-primario,
+#pantallaCrecimiento .boton-secundario,
+#pantallaCrecimiento .boton-limpiar {
+    -fx-min-height: 43;
+    -fx-font-size: 12px;
+}
+
+#pantallaCrecimiento .boton-primario:hover {
+    -fx-background-color: #105FAF;
+}
+
+#pantallaCrecimiento .boton-secundario:hover {
+    -fx-background-color: #C6E2FF;
+}
+
+#pantallaCrecimiento .boton-limpiar:hover {
+    -fx-background-color: #DEE5EF;
+}
+
+/* GRÁFICO */
+
+#pantallaCrecimiento #graficoPeso {
+    -fx-background-color: white;
+    -fx-padding: 10;
+}
+
+#pantallaCrecimiento #graficoPeso
+.chart-plot-background {
+    -fx-background-color: #F8FAFE;
+}
+
+#pantallaCrecimiento #graficoPeso
+.default-color0.chart-series-line {
+    -fx-stroke: #1976D2;
+    -fx-stroke-width: 3px;
+}
+
+#pantallaCrecimiento #graficoPeso
+.default-color0.chart-line-symbol {
+    -fx-background-color: #1976D2, white;
+    -fx-background-radius: 7px;
+    -fx-padding: 6px;
+}
+
+#pantallaCrecimiento #graficoPeso
+.chart-horizontal-grid-lines,
+#pantallaCrecimiento #graficoPeso
+.chart-vertical-grid-lines {
+    -fx-stroke: #E3EAF3;
+}
+
+/* TABLA */
+
+#pantallaCrecimiento .table-view {
+    -fx-background-color: white;
+    -fx-border-color: #E1E9F3;
+    -fx-border-radius: 8;
+}
+
+#pantallaCrecimiento .table-view
+.column-header-background,
+#pantallaCrecimiento .table-view
+.column-header {
+    -fx-background-color: #EAF2FC;
+}
+
+#pantallaCrecimiento .table-view
+.column-header {
+    -fx-pref-height: 42;
+}
+
+#pantallaCrecimiento .table-view
+.column-header .label {
+    -fx-text-fill: #173657;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+#pantallaCrecimiento .table-row-cell {
+    -fx-cell-size: 39px;
+}
+
+#pantallaCrecimiento .table-row-cell:odd {
+    -fx-background-color: #F8FAFD;
+}
+
+#pantallaCrecimiento .table-row-cell:even {
+    -fx-background-color: white;
+}
+
+#pantallaCrecimiento .table-row-cell:filled:selected {
+    -fx-background-color: #D9EAFD;
+}
+
+#pantallaCrecimiento .table-row-cell:filled:selected
+.table-cell {
+    -fx-text-fill: #173657;
+}
+
+/* OPCIONES PENDIENTES */
+
+#pantallaCrecimiento .menu-boton:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* ==========================================
+   PISCICONTROLF - GESTION DE PRODUCCION
+   ========================================== */
+
+#pantallaProduccion {
+    -fx-background-color: #F3F7FC;
+}
+
+/* AREA DESPLAZABLE */
+
+#pantallaProduccion .scroll-produccion {
+    -fx-background-color: transparent;
+    -fx-background: #F3F7FC;
+    -fx-border-color: transparent;
+}
+
+#pantallaProduccion .scroll-produccion .viewport {
+    -fx-background-color: #F3F7FC;
+}
+
+/* TARJETAS GENERALES */
+
+#pantallaProduccion .tarjeta,
+#pantallaProduccion .produccion-indicador,
+#pantallaProduccion .produccion-panel-datos {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-border-color: #E1E9F3;
+    -fx-border-radius: 14;
+    -fx-padding: 22;
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(18, 49, 89, 0.07),
+        12, 0, 0, 3
+    );
+}
+
+/* INDICADORES */
+
+#pantallaProduccion .produccion-numero {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #173657;
+}
+
+#pantallaProduccion .produccion-numero-verde {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #079B83;
+}
+
+#pantallaProduccion .produccion-numero-azul {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1976D2;
+}
+
+/* ETIQUETA DEL FORMULARIO */
+
+#pantallaProduccion .produccion-etiqueta {
+    -fx-background-color: #EAF2FD;
+    -fx-background-radius: 7;
+    -fx-padding: 7 11;
+    -fx-text-fill: #2466B2;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+/* CAMPOS */
+
+#pantallaProduccion .campo {
+    -fx-background-color: #F8FAFE;
+    -fx-border-color: #D5E1EE;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+#pantallaProduccion .text-field,
+#pantallaProduccion .combo-box,
+#pantallaProduccion .date-picker {
+    -fx-pref-height: 41;
+}
+
+#pantallaProduccion .text-field:focused,
+#pantallaProduccion .text-area:focused {
+    -fx-border-color: #2784E8;
+    -fx-border-width: 2;
+}
+
+#pantallaProduccion .text-area .content {
+    -fx-background-color: #F8FAFE;
+}
+
+/* PANEL DE DISPONIBILIDAD */
+
+#pantallaProduccion .produccion-disponibles {
+    -fx-background-color: #EAF5FF;
+    -fx-background-radius: 11;
+    -fx-padding: 20;
+}
+
+#pantallaProduccion .produccion-disponibles-valor {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #087CC1;
+}
+
+#pantallaProduccion .produccion-ayuda {
+    -fx-text-fill: #57718B;
+    -fx-font-size: 12px;
+}
+
+/* BOTONES */
+
+#pantallaProduccion .boton-primario,
+#pantallaProduccion .boton-secundario,
+#pantallaProduccion .boton-anular,
+#pantallaProduccion .boton-limpiar {
+    -fx-min-height: 44;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+#pantallaProduccion .boton-anular {
+    -fx-background-color: #FCE7E9;
+    -fx-background-radius: 8;
+    -fx-text-fill: #B42335;
+    -fx-border-color: #F4C5CB;
+    -fx-border-radius: 8;
+}
+
+#pantallaProduccion .boton-anular:hover {
+    -fx-background-color: #F8D2D7;
+}
+
+#pantallaProduccion .boton-primario:hover {
+    -fx-background-color: #105FAF;
+}
+
+#pantallaProduccion .boton-secundario:hover {
+    -fx-background-color: #C6E2FF;
+}
+
+/* TABLA */
+
+#pantallaProduccion .table-view {
+    -fx-background-color: white;
+    -fx-border-color: #E1E9F3;
+    -fx-border-radius: 8;
+}
+
+#pantallaProduccion .table-view
+.column-header-background,
+#pantallaProduccion .table-view
+.column-header {
+    -fx-background-color: #EAF2FC;
+}
+
+#pantallaProduccion .table-view
+.column-header {
+    -fx-pref-height: 43;
+}
+
+#pantallaProduccion .table-view
+.column-header .label {
+    -fx-text-fill: #173657;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+#pantallaProduccion .table-row-cell {
+    -fx-cell-size: 40px;
+}
+
+#pantallaProduccion .table-row-cell:even {
+    -fx-background-color: white;
+}
+
+#pantallaProduccion .table-row-cell:odd {
+    -fx-background-color: #F8FAFD;
+}
+
+#pantallaProduccion .table-row-cell:filled:selected {
+    -fx-background-color: #D9EAFD;
+}
+
+#pantallaProduccion
+.table-row-cell:filled:selected .table-cell {
+    -fx-text-fill: #173657;
+}
+
+/* OPCIONES TODAVIA NO CONECTADAS */
+
+#pantallaProduccion .menu-boton:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* CORRECCIONES VISUALES DE PRODUCCION */
+
+#pantallaProduccion .produccion-indicador {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-border-color: #E1E9F3;
+    -fx-border-radius: 14;
+    -fx-padding: 22;
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(18, 49, 89, 0.08),
+        12, 0, 0, 3
+    );
+}
+
+#pantallaProduccion .produccion-panel-datos {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-border-color: #E1E9F3;
+    -fx-border-radius: 14;
+    -fx-padding: 22;
+}
+
+#pantallaProduccion .produccion-disponibles {
+    -fx-background-color: #EAF5FF;
+    -fx-background-radius: 10;
+    -fx-padding: 18;
+}
+
+#pantallaProduccion .produccion-disponibles-valor {
+    -fx-text-fill: #087CC1;
+    -fx-font-size: 21px;
+    -fx-font-weight: bold;
+}
+
+#pantallaProduccion .boton-anular {
+    -fx-background-color: #DC3545;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-min-height: 44;
+    -fx-cursor: hand;
+}
+
+#pantallaProduccion .boton-anular:hover {
+    -fx-background-color: #B52B39;
+}
+
+/* =====================================================
+   CORRECCION AUTONOMA - TARJETAS Y BOTON DE PRODUCCION
+   Estas clases solo se usan en gestion-produccion.fxml.
+   No dependen de #pantallaProduccion.
+   ===================================================== */
+
+.produccion-indicador,
+.produccion-panel-datos {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 14;
+    -fx-border-color: #E1E9F3;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 22;
+    -fx-effect: dropshadow(gaussian, rgba(18, 49, 89, 0.08), 12, 0, 0, 3);
+}
+
+.produccion-numero {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #173657;
+}
+
+.produccion-numero-verde {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #079B83;
+}
+
+.produccion-numero-azul {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1976D2;
+}
+
+.produccion-disponibles {
+    -fx-background-color: #EAF5FF;
+    -fx-background-radius: 10;
+    -fx-padding: 18;
+}
+
+.produccion-disponibles-valor {
+    -fx-font-size: 21px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #087CC1;
+}
+
+.produccion-etiqueta {
+    -fx-background-color: #EAF2FD;
+    -fx-background-radius: 7;
+    -fx-padding: 7 11;
+    -fx-text-fill: #2466B2;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.boton-anular {
+    -fx-background-color: #DC3545;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-min-height: 44;
+    -fx-cursor: hand;
+}
+
+.boton-anular:hover {
+    -fx-background-color: #B52B39;
+}
+
+/* BOTONES INACTIVOS DEL MENU */
+/*.menu-boton:disabled {
+    -fx-opacity: 1;
+    -fx-text-fill: #FFB454;
+    -fx-underline: true;
+    -fx-background-color: transparent;
+}
+
+/* BOTONES SECUNDARIOS DESHABILITADOS */
+/*.boton-secundario:disabled {
+    -fx-opacity: 1;
+    -fx-text-fill: #899BB5;
+    -fx-background-color: #E8EDF5;
+}

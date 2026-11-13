@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="pe.edu.upeu.piscicontrolf.controller.PanelPrincipalController"
+            prefWidth="1320"
+            prefHeight="800"
+            stylesheets="@piscicontrol.css"
+            styleClass="pantalla">
+
+    <!-- MENU LATERAL -->
+    <left>
+        <VBox prefWidth="225"
+              spacing="12"
+              styleClass="menu-lateral">
+
+            <Label text="🐟 PisciControl"
+                   styleClass="logo"/>
+
+            <Label text="Gestión inteligente de piscigranjas"
+                   wrapText="true"
+                   styleClass="logo-subtitulo"/>
+
+            <Separator/>
+
+            <Button fx:id="btnInicio"
+                    text="Panel principal"
+                    maxWidth="Infinity"
+                    styleClass="menu-activo"/>
+
+            <Button fx:id="btnEstanques"
+                    text="Gestión de estanques"
+                    onAction="#abrirEstanques"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button fx:id="btnLotes"
+                    text="Lotes de truchas"
+                    onAction="#abrirLotes"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Alimentación"
+                    onAction="#abrirAlimentacion"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Crecimiento"
+                    onAction="#abrirCrecimiento"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Producción"
+                    onAction="#abrirProduccion"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Clientes"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Ventas"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Reportes"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="PisciControl | v1.0"
+                   styleClass="menu-pie"/>
+        </VBox>
+    </left>
+
+    <!-- CONTENIDO -->
+    <center>
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER">
+
+            <VBox spacing="23"
+                  styleClass="contenido">
+
+                <!-- ENCABEZADO -->
+                <HBox alignment="CENTER_LEFT">
+
+                    <VBox spacing="6">
+                        <Label text="Panel Principal"
+                               styleClass="titulo"/>
+
+                        <Label text="Resumen general de tu piscigranja"
+                               styleClass="subtitulo"/>
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Label text="PisciControl"
+                           styleClass="etiqueta-superior"/>
+                </HBox>
+
+
+
+                <!-- BIENVENIDA  -->
+                <VBox spacing="10"
+                      styleClass="bienvenida-panel">
+
+                    <Label text="SISTEMA DE GESTIÓN ACUÍCOLA"
+                           styleClass="bienvenida-etiqueta"/>
+
+                    <Label text="Bienvenido a PisciControl"
+                           styleClass="bienvenida-titulo"/>
+
+                    <Label text="Controla tus estanques, registra lotes de truchas y supervisa la producción de tu piscigranja desde un solo lugar."
+                           wrapText="true"
+                           styleClass="bienvenida-descripcion"/>
+
+                </VBox>
+
+
+                <!-- INDICADORES -->
+                <HBox spacing="16">
+
+                    <VBox id="cardEstanques"
+                          spacing="10"
+                          HBox.hgrow="ALWAYS"
+                          styleClass="tarjeta">
+
+                        <Label text="TOTAL DE ESTANQUES"
+                               styleClass="indicador-titulo"/>
+
+                        <Label fx:id="lblEstanques"
+                               text="0"
+                               styleClass="indicador-numero"/>
+
+                        <Label text="Estanques registrados"
+                               styleClass="subtitulo"/>
+                    </VBox>
+
+                    <VBox id="cardLotes"
+                          spacing="10"
+                          HBox.hgrow="ALWAYS"
+                          styleClass="tarjeta">
+
+                        <Label text="LOTES REGISTRADOS"
+                               styleClass="indicador-titulo"/>
+
+                        <Label fx:id="lblLotes"
+                               text="0"
+                               styleClass="indicador-numero"/>
+
+                        <Label text="Lotes de truchas"
+                               styleClass="subtitulo"/>
+                    </VBox>
+
+                    <VBox id="cardTruchas"
+                          spacing="10"
+                          HBox.hgrow="ALWAYS"
+                          styleClass="tarjeta">
+
+                        <Label text="TRUCHAS REGISTRADAS"
+                               styleClass="indicador-titulo"/>
+
+                        <Label fx:id="lblTruchas"
+                               text="0"
+                               styleClass="indicador-numero"/>
+
+                        <Label text="Cantidad registrada"
+                               styleClass="subtitulo"/>
+                    </VBox>
+
+                </HBox>
+
+                <!-- RESUMEN Y ACCESOS -->
+                <HBox spacing="18">
+
+                    <VBox spacing="16"
+                          HBox.hgrow="ALWAYS"
+                          styleClass="tarjeta">
+
+                        <Label text="Resumen de capacidad"
+                               styleClass="seccion-titulo"/>
+
+                        <Label text="Ocupación de los estanques"
+                               styleClass="subtitulo"/>
+
+                        <ProgressBar fx:id="barraOcupacion"
+                                     progress="0"
+                                     maxWidth="Infinity"/>
+
+                        <Label fx:id="lblOcupacion"
+                               text="0 % de ocupación"
+                               styleClass="campo-titulo"/>
+
+                        <Separator/>
+
+                        <Label text="La información se actualizará con los datos registrados en H2."
+                               wrapText="true"
+                               styleClass="subtitulo"/>
+
+                    </VBox>
+
+                    <VBox spacing="15"
+                          prefWidth="300"
+                          styleClass="tarjeta">
+
+                        <Label text="Accesos rápidos"
+                               styleClass="seccion-titulo"/>
+
+                        <Button fx:id="btnAbrirEstanques"
+                                text="Administrar estanques"
+                                onAction="#abrirEstanques"
+                                maxWidth="Infinity"
+                                styleClass="boton-primario"/>
+
+                        <Button fx:id="btnAbrirLotes"
+                                text="Administrar lotes"
+                                onAction="#abrirLotes"
+                                maxWidth="Infinity"
+                                styleClass="boton-secundario"/>
+
+                    </VBox>
+                </HBox>
+
+                <!-- GRAFICO DE PRODUCCION POR ESTANQUE -->
+                <VBox spacing="15"
+                      styleClass="tarjeta">
+
+                    <Label text="Distribución de truchas por estanque"
+                           styleClass="seccion-titulo"/>
+
+                    <Label text="Cantidad de truchas registradas en cada estanque"
+                           styleClass="subtitulo"/>
+
+                    <BarChart fx:id="graficoTruchas"
+                              title="Truchas registradas"
+                              animated="false"
+                              legendVisible="false"
+                              prefHeight="320"
+                              VBox.vgrow="ALWAYS">
+
+                        <xAxis>
+                            <CategoryAxis label="Estanques"/>
+                        </xAxis>
+
+                        <yAxis>
+                            <NumberAxis label="Cantidad de truchas"
+                                        forceZeroInRange="true"/>
+                        </yAxis>
+
+                    </BarChart>
+
+                </VBox>
+
+
+                <!-- INFORMACION -->
+                <VBox spacing="12"
+                      styleClass="tarjeta">
+
+                    <Label text="Información del sistema"
+                           styleClass="seccion-titulo"/>
+
+                    <Label text="PisciControl - Sistema de gestión de crianza de truchas"
+                           styleClass="campo-titulo"/>
+
+                    <Label text="Desarrollado con JavaFX, H2 Database, JDBC y HikariCP."
+                           styleClass="subtitulo"/>
+
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="pe.edu.upeu.piscicontrolf.controller.CrecimientoController"
+        id="pantallaCrecimiento"
+        prefWidth="1350"
+        prefHeight="820"
+        stylesheets="@piscicontrol.css"
+        styleClass="pantalla">
+
+    <!-- MENÚ LATERAL -->
+    <left>
+        <VBox prefWidth="240"
+              spacing="9"
+              styleClass="menu-lateral">
+
+            <Label text="PisciControlF"
+                   styleClass="logo"/>
+
+            <Label text="Gestión inteligente de piscigranjas"
+                   wrapText="true"
+                   styleClass="logo-subtitulo"/>
+
+            <Separator/>
+
+            <Label text="MENÚ PRINCIPAL"
+                   styleClass="menu-pie"/>
+
+            <Button text="Panel principal"
+                    onAction="#volverAlPanel"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Gestión de estanques"
+                    onAction="#abrirEstanques"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Lotes de truchas"
+                    onAction="#abrirLotes"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Alimentación"
+                    onAction="#abrirAlimentacion"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Crecimiento"
+                    maxWidth="Infinity"
+                    styleClass="menu-activo"/>
+
+            <Button text="Producción"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Separator/>
+
+            <Label text="ADMINISTRACIÓN"
+                   styleClass="menu-pie"/>
+
+            <Button text="Clientes"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Ventas"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Reportes"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="PisciControlF | Versión 1.0"
+                   styleClass="menu-pie"/>
+
+        </VBox>
+    </left>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <center>
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    styleClass="scroll-contenido">
+
+            <VBox spacing="20"
+                  styleClass="contenido">
+
+                <!-- ENCABEZADO -->
+                <HBox alignment="CENTER_LEFT"
+                      spacing="15">
+
+                    <VBox spacing="6">
+
+                        <Label text="Gestión de Crecimiento"
+                               styleClass="titulo"/>
+
+                        <Label
+                                text="Seguimiento del desarrollo de truchas mediante mediciones de peso y talla"
+                                styleClass="subtitulo"/>
+
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Label text="CONTROL BIOMÉTRICO"
+                           styleClass="etiqueta-superior"/>
+
+                </HBox>
+
+                <!-- INDICADORES -->
+                <GridPane hgap="15">
+
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="33.33"/>
+                        <ColumnConstraints percentWidth="33.33"/>
+                        <ColumnConstraints percentWidth="33.34"/>
+                    </columnConstraints>
+
+                    <!-- MEDICIONES -->
+                    <VBox spacing="7"
+                          styleClass="tarjeta-indicador"
+                          GridPane.columnIndex="0">
+
+                        <Label text="TOTAL DE MEDICIONES"
+                               styleClass="indicador-titulo"/>
+
+                        <Label fx:id="lblTotalMediciones"
+                               text="0"
+                               styleClass="indicador-numero"/>
+
+                        <Label text="Registros realizados"
+                               styleClass="indicador-texto"/>
+
+                    </VBox>
+
+                    <!-- PESO -->
+                    <VBox spacing="7"
+                          styleClass="tarjeta-indicador"
+                          GridPane.columnIndex="1">
+
+                        <Label text="ÚLTIMO PESO PROMEDIO"
+                               styleClass="indicador-titulo"/>
+
+                        <Label fx:id="lblPesoActual"
+                               text="-- g"
+                               styleClass="indicador-peso"/>
+
+                        <Label text="Del lote seleccionado"
+                               styleClass="indicador-texto"/>
+
+                    </VBox>
+
+                    <!-- TALLA -->
+                    <VBox spacing="7"
+                          styleClass="tarjeta-indicador"
+                          GridPane.columnIndex="2">
+
+                        <Label text="ÚLTIMA TALLA PROMEDIO"
+                               styleClass="indicador-titulo"/>
+
+                        <Label fx:id="lblTallaActual"
+                               text="-- cm"
+                               styleClass="indicador-talla"/>
+
+                        <Label text="Del lote seleccionado"
+                               styleClass="indicador-texto"/>
+
+                    </VBox>
+
+                </GridPane>
+
+                <!-- FORMULARIO Y GRÁFICO -->
+                <HBox spacing="18"
+                      alignment="TOP_LEFT">
+
+                    <!-- FORMULARIO -->
+                    <VBox prefWidth="350"
+                          minWidth="320"
+                          spacing="12"
+                          styleClass="tarjeta">
+
+                        <Label text="Registro de crecimiento"
+                               styleClass="seccion-titulo"/>
+
+                        <Label
+                                text="Ingresa las mediciones obtenidas durante el muestreo."
+                                wrapText="true"
+                                styleClass="subtitulo"/>
+
+                        <Separator/>
+
+                        <Label text="Lote de truchas"
+                               styleClass="campo-titulo"/>
+
+                        <ComboBox fx:id="cmbLote"
+                                  promptText="Seleccione un lote"
+                                  maxWidth="Infinity"
+                                  styleClass="campo"/>
+
+                        <Label text="Fecha de medición"
+                               styleClass="campo-titulo"/>
+
+                        <DatePicker fx:id="dpFecha"
+                                    maxWidth="Infinity"
+                                    styleClass="campo"/>
+
+                        <!-- PESO Y TALLA -->
+                        <GridPane hgap="12"
+                                  vgap="8">
+
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+
+                            <Label text="Peso promedio (g)"
+                                   styleClass="campo-titulo"
+                                   GridPane.columnIndex="0"
+                                   GridPane.rowIndex="0"/>
+
+                            <Label text="Talla promedio (cm)"
+                                   styleClass="campo-titulo"
+                                   GridPane.columnIndex="1"
+                                   GridPane.rowIndex="0"/>
+
+                            <TextField fx:id="txtPeso"
+                                       promptText="Ej. 150.50"
+                                       maxWidth="Infinity"
+                                       styleClass="campo"
+                                       GridPane.columnIndex="0"
+                                       GridPane.rowIndex="1"/>
+
+                            <TextField fx:id="txtTalla"
+                                       promptText="Ej. 18.50"
+                                       maxWidth="Infinity"
+                                       styleClass="campo"
+                                       GridPane.columnIndex="1"
+                                       GridPane.rowIndex="1"/>
+
+                        </GridPane>
+
+                        <Label text="Cantidad de peces muestreados"
+                               styleClass="campo-titulo"/>
+
+                        <TextField fx:id="txtMuestra"
+                                   promptText="Ej. 30"
+                                   styleClass="campo"/>
+
+                        <Label text="Observaciones"
+                               styleClass="campo-titulo"/>
+
+                        <TextArea fx:id="txtObservaciones"
+                                  promptText="Ingrese las observaciones del muestreo..."
+                                  prefRowCount="3"
+                                  wrapText="true"
+                                  styleClass="campo"/>
+
+                        <Separator/>
+
+                        <Label text="ACCIONES"
+                               styleClass="indicador-titulo"/>
+
+                        <!-- BOTONES -->
+                        <GridPane hgap="10"
+                                  vgap="10">
+
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+
+                            <Button fx:id="btnRegistrar"
+                                    text="Registrar"
+                                    onAction="#registrarCrecimiento"
+                                    maxWidth="Infinity"
+                                    styleClass="boton-primario"
+                                    GridPane.columnIndex="0"
+                                    GridPane.rowIndex="0"/>
+
+                            <Button fx:id="btnModificar"
+                                    text="Modificar"
+                                    onAction="#modificarCrecimiento"
+                                    maxWidth="Infinity"
+                                    styleClass="boton-secundario"
+                                    GridPane.columnIndex="1"
+                                    GridPane.rowIndex="0"/>
+
+                            <Button fx:id="btnLimpiar"
+                                    text="Limpiar formulario"
+                                    onAction="#limpiarFormulario"
+                                    maxWidth="Infinity"
+                                    styleClass="boton-limpiar"
+                                    GridPane.columnIndex="0"
+                                    GridPane.columnSpan="2"
+                                    GridPane.rowIndex="1"/>
+
+                        </GridPane>
+
+                        <Label
+                                text="Seleccione una medición del historial para modificar sus datos."
+                                wrapText="true"
+                                styleClass="subtitulo"/>
+
+                    </VBox>
+
+                    <!-- GRÁFICO -->
+                    <VBox spacing="15"
+                          minWidth="400"
+                          HBox.hgrow="ALWAYS"
+                          styleClass="tarjeta">
+
+                        <HBox alignment="CENTER_LEFT"
+                              spacing="10">
+
+                            <VBox spacing="5">
+
+                                <Label text="Evolución del crecimiento"
+                                       styleClass="seccion-titulo"/>
+
+                                <Label
+                                        text="Peso promedio registrado por fecha para el lote seleccionado."
+                                        wrapText="true"
+                                        styleClass="subtitulo"/>
+
+                            </VBox>
+
+                            <Region HBox.hgrow="ALWAYS"/>
+
+                            <Label text="ESTADÍSTICAS"
+                                   styleClass="etiqueta-superior"/>
+
+                        </HBox>
+
+                        <Separator/>
+
+                        <LineChart fx:id="graficoPeso"
+                                   animated="false"
+                                   createSymbols="true"
+                                   legendVisible="false"
+                                   prefHeight="390"
+                                   minHeight="320"
+                                   VBox.vgrow="ALWAYS">
+
+                            <xAxis>
+                                <CategoryAxis label="Fecha"/>
+                            </xAxis>
+
+                            <yAxis>
+                                <NumberAxis label="Peso promedio (g)"
+                                            forceZeroInRange="true"/>
+                            </yAxis>
+
+                        </LineChart>
+
+                        <Label
+                                text="Selecciona un lote para visualizar la evolución de su peso promedio."
+                                wrapText="true"
+                                styleClass="subtitulo"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <!-- HISTORIAL -->
+                <VBox spacing="15"
+                      styleClass="tarjeta">
+
+                    <HBox alignment="CENTER_LEFT"
+                          spacing="10">
+
+                        <VBox spacing="5">
+
+                            <Label text="Historial de crecimiento"
+                                   styleClass="seccion-titulo"/>
+
+                            <Label
+                                    text="Consulta y administra las mediciones registradas de cada lote."
+                                    styleClass="subtitulo"/>
+
+                        </VBox>
+
+                        <Region HBox.hgrow="ALWAYS"/>
+
+                        <Label text="REGISTROS"
+                               styleClass="etiqueta-superior"/>
+
+                    </HBox>
+
+                    <TextField fx:id="txtBuscar"
+                               promptText="Buscar por lote o fecha..."
+                               styleClass="campo"/>
+
+                    <TableView fx:id="tablaCrecimiento"
+                               prefHeight="340"
+                               minHeight="270">
+
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+
+                        <columns>
+
+                            <TableColumn fx:id="colId"
+                                         text="ID"
+                                         prefWidth="65"
+                                         minWidth="40"/>
+
+                            <TableColumn fx:id="colLote"
+                                         text="Lote"
+                                         prefWidth="110"
+                                         minWidth="65"/>
+
+                            <TableColumn fx:id="colFecha"
+                                         text="Fecha"
+                                         prefWidth="140"
+                                         minWidth="90"/>
+
+                            <TableColumn fx:id="colPeso"
+                                         text="Peso (g)"
+                                         prefWidth="135"
+                                         minWidth="85"/>
+
+                            <TableColumn fx:id="colTalla"
+                                         text="Talla (cm)"
+                                         prefWidth="135"
+                                         minWidth="85"/>
+
+                            <TableColumn fx:id="colMuestra"
+                                         text="Muestra"
+                                         prefWidth="115"
+                                         minWidth="75"/>
+
+                            <TableColumn fx:id="colObservaciones"
+                                         text="Observaciones"
+                                         prefWidth="260"
+                                         minWidth="120"/>
+
+                        </columns>
+
+                        <placeholder>
+                            <Label
+                                    text="No hay mediciones de crecimiento registradas"/>
+                        </placeholder>
+
+                    </TableView>
+
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

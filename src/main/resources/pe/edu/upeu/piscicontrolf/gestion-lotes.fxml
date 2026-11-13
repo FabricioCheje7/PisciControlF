@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="pe.edu.upeu.piscicontrolf.controller.LotesController"
+        id="pantallaLotes"
+        prefWidth="1350"
+        prefHeight="800"
+        stylesheets="@piscicontrol.css"
+        styleClass="pantalla">
+
+    <!-- MENU LATERAL -->
+    <left>
+        <VBox prefWidth="240"
+              spacing="9"
+              styleClass="menu-lateral">
+
+            <Label text="PisciControlF"
+                   styleClass="logo"/>
+
+            <Label text="Gestión inteligente de piscigranjas"
+                   wrapText="true"
+                   styleClass="logo-subtitulo"/>
+
+            <Separator/>
+
+            <Label text="MENÚ PRINCIPAL"
+                   styleClass="menu-pie"/>
+
+            <Button text="Panel principal"
+                    onAction="#volverAlPanel"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Gestión de estanques"
+                    onAction="#abrirEstanques"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Lotes de truchas"
+                    maxWidth="Infinity"
+                    styleClass="menu-activo"/>
+
+            <Button text="Alimentación"
+                    onAction="#abrirAlimentacion"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Crecimiento"
+                    onAction="#abrirCrecimiento"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Producción"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Separator/>
+
+            <Label text="ADMINISTRACIÓN"
+                   styleClass="menu-pie"/>
+
+            <Button text="Clientes"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Ventas"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Reportes"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="PisciControlF | Versión 1.0"
+                   styleClass="menu-pie"/>
+
+        </VBox>
+    </left>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <center>
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    styleClass="scroll-contenido">
+
+            <VBox spacing="20"
+                  styleClass="contenido">
+
+                <!-- ENCABEZADO -->
+                <HBox alignment="CENTER_LEFT"
+                      spacing="15">
+
+                    <VBox spacing="6">
+
+                        <Label text="Gestión de Lotes de Truchas"
+                               styleClass="titulo"/>
+
+                        <Label
+                                text="Registro, seguimiento y control de poblaciones de truchas"
+                                styleClass="subtitulo"/>
+
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Label text="PRODUCCIÓN ACUÍCOLA"
+                           styleClass="etiqueta-superior"/>
+
+                </HBox>
+
+                <!-- SECCION FORMULARIO Y CAPACIDAD -->
+                <HBox spacing="18"
+                      alignment="TOP_LEFT">
+
+                    <!-- FORMULARIO -->
+                    <VBox spacing="15"
+                          HBox.hgrow="ALWAYS"
+                          minWidth="420"
+                          styleClass="tarjeta">
+
+                        <VBox spacing="5">
+
+                            <Label text="Registro de lotes"
+                                   styleClass="seccion-titulo"/>
+
+                            <Label
+                                    text="Completa los datos para registrar o modificar un lote."
+                                    styleClass="subtitulo"/>
+
+                        </VBox>
+
+                        <Separator/>
+
+                        <!-- ESTANQUE -->
+                        <Label text="Estanque asignado"
+                               styleClass="campo-titulo"/>
+
+                        <ComboBox fx:id="cmbEstanque"
+                                  promptText="Seleccione un estanque"
+                                  maxWidth="Infinity"
+                                  styleClass="campo"/>
+
+                        <!-- FECHA Y CANTIDAD -->
+                        <GridPane hgap="15"
+                                  vgap="8">
+
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+
+                            <Label text="Fecha de ingreso"
+                                   styleClass="campo-titulo"
+                                   GridPane.columnIndex="0"
+                                   GridPane.rowIndex="0"/>
+
+                            <Label text="Cantidad de truchas"
+                                   styleClass="campo-titulo"
+                                   GridPane.columnIndex="1"
+                                   GridPane.rowIndex="0"/>
+
+                            <DatePicker fx:id="dpFechaIngreso"
+                                        maxWidth="Infinity"
+                                        styleClass="campo"
+                                        GridPane.columnIndex="0"
+                                        GridPane.rowIndex="1"/>
+
+                            <TextField fx:id="txtCantidad"
+                                       promptText="Ej. 500"
+                                       maxWidth="Infinity"
+                                       styleClass="campo"
+                                       GridPane.columnIndex="1"
+                                       GridPane.rowIndex="1"/>
+
+                        </GridPane>
+
+                        <!-- OBSERVACIONES -->
+                        <Label text="Observaciones"
+                               styleClass="campo-titulo"/>
+
+                        <TextArea fx:id="txtObservaciones"
+                                  promptText="Ingrese las observaciones del lote..."
+                                  prefRowCount="3"
+                                  wrapText="true"
+                                  styleClass="campo"/>
+
+                        <Separator/>
+
+                        <Label text="ACCIONES DEL LOTE"
+                               styleClass="indicador-titulo"/>
+
+                        <!-- BOTONES -->
+                        <HBox spacing="10">
+
+                            <Button fx:id="btnRegistrar"
+                                    text="Registrar lote"
+                                    onAction="#registrarLote"
+                                    HBox.hgrow="ALWAYS"
+                                    maxWidth="Infinity"
+                                    styleClass="boton-primario"/>
+
+                            <Button fx:id="btnModificar"
+                                    text="Modificar"
+                                    onAction="#modificarLote"
+                                    HBox.hgrow="ALWAYS"
+                                    maxWidth="Infinity"
+                                    styleClass="boton-secundario"/>
+
+                            <Button fx:id="btnLimpiar"
+                                    text="Limpiar"
+                                    onAction="#limpiarFormulario"
+                                    HBox.hgrow="ALWAYS"
+                                    maxWidth="Infinity"
+                                    styleClass="boton-limpiar"/>
+
+                        </HBox>
+
+                        <Label
+                                text="Seleccione un lote en la tabla para consultar o modificar sus datos."
+                                wrapText="true"
+                                styleClass="subtitulo"/>
+
+                    </VBox>
+
+                    <!-- INDICADORES DE CAPACIDAD -->
+                    <VBox prefWidth="310"
+                          minWidth="285"
+                          spacing="16"
+                          styleClass="tarjeta">
+
+                        <Label text="Control de capacidad"
+                               styleClass="seccion-titulo"/>
+
+                        <Label
+                                text="Disponibilidad del estanque seleccionado"
+                                wrapText="true"
+                                styleClass="subtitulo"/>
+
+                        <Separator/>
+
+                        <Label text="CAPACIDAD TOTAL"
+                               styleClass="indicador-titulo"/>
+
+                        <Label fx:id="lblCapacidadTotal"
+                               text="0 truchas"
+                               styleClass="valor-capacidad"/>
+
+                        <Separator/>
+
+                        <Label text="TRUCHAS REGISTRADAS"
+                               styleClass="indicador-titulo"/>
+
+                        <Label fx:id="lblOcupadas"
+                               text="0 truchas"
+                               styleClass="valor-ocupadas"/>
+
+                        <Separator/>
+
+                        <Label text="CAPACIDAD DISPONIBLE"
+                               styleClass="indicador-titulo"/>
+
+                        <Label fx:id="lblDisponibles"
+                               text="0 truchas"
+                               styleClass="valor-disponibles"/>
+
+                        <Label text="Nivel de ocupación"
+                               styleClass="campo-titulo"/>
+
+                        <ProgressBar fx:id="barraCapacidad"
+                                     progress="0"
+                                     maxWidth="Infinity"/>
+
+                        <Label
+                                text="Seleccione un estanque para visualizar los datos de ocupación."
+                                wrapText="true"
+                                styleClass="subtitulo"/>
+
+                        <Region VBox.vgrow="ALWAYS"/>
+
+                        <Label text="CONTROL DE POBLACIÓN"
+                               styleClass="etiqueta-superior"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <!-- TABLA DE LOTES -->
+                <VBox spacing="15"
+                      styleClass="tarjeta">
+
+                    <HBox alignment="CENTER_LEFT"
+                          spacing="12">
+
+                        <VBox spacing="5">
+
+                            <Label text="Lotes registrados"
+                                   styleClass="seccion-titulo"/>
+
+                            <Label
+                                    text="Consulta los lotes y su información de ingreso."
+                                    styleClass="subtitulo"/>
+
+                        </VBox>
+
+                        <Region HBox.hgrow="ALWAYS"/>
+
+                        <Label text="REGISTROS"
+                               styleClass="etiqueta-superior"/>
+
+                    </HBox>
+
+                    <TextField fx:id="txtBuscar"
+                               promptText="Buscar lote o estanque..."
+                               styleClass="campo"/>
+
+                    <TableView fx:id="tablaLotes"
+                               prefHeight="340"
+                               minHeight="270">
+
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+
+                        <columns>
+
+                            <TableColumn fx:id="colId"
+                                         text="ID"
+                                         prefWidth="70"
+                                         minWidth="45"/>
+
+                            <TableColumn fx:id="colEstanque"
+                                         text="Estanque"
+                                         prefWidth="230"
+                                         minWidth="110"/>
+
+                            <TableColumn fx:id="colFecha"
+                                         text="Fecha de ingreso"
+                                         prefWidth="180"
+                                         minWidth="120"/>
+
+                            <TableColumn fx:id="colCantidad"
+                                         text="Truchas"
+                                         prefWidth="150"
+                                         minWidth="90"/>
+
+                            <TableColumn fx:id="colObservaciones"
+                                         text="Observaciones"
+                                         prefWidth="300"
+                                         minWidth="150"/>
+
+                        </columns>
+
+                        <placeholder>
+                            <Label text="No hay lotes registrados"/>
+                        </placeholder>
+
+                    </TableView>
+
+                </VBox>
+
+            </VBox>
+
+        </ScrollPane>
+    </center>
+
+</BorderPane>

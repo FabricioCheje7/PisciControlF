@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="pe.edu.upeu.piscicontrolf.controller.AlimentacionController"
+        id="pantallaAlimentacion"
+        prefWidth="1350"
+        prefHeight="800"
+        stylesheets="@piscicontrol.css"
+        styleClass="pantalla">
+
+    <!-- MENU LATERAL -->
+    <left>
+        <VBox prefWidth="240"
+              spacing="9"
+              styleClass="menu-lateral">
+
+            <Label text="PisciControlF"
+                   styleClass="logo"/>
+
+            <Label text="Gestión inteligente de piscigranjas"
+                   wrapText="true"
+                   styleClass="logo-subtitulo"/>
+
+            <Separator/>
+
+            <Label text="MENÚ PRINCIPAL"
+                   styleClass="menu-pie"/>
+
+            <Button text="Panel principal"
+                    onAction="#volverAlPanel"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Gestión de estanques"
+                    onAction="#abrirEstanques"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Lotes de truchas"
+                    onAction="#abrirLotes"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Alimentación"
+                    maxWidth="Infinity"
+                    styleClass="menu-activo"/>
+
+            <Button text="Crecimiento"
+                    onAction="#abrirCrecimiento"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Producción"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Separator/>
+
+            <Label text="ADMINISTRACIÓN"
+                   styleClass="menu-pie"/>
+
+            <Button text="Clientes"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Ventas"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Reportes"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="PisciControlF | Versión 1.0"
+                   styleClass="menu-pie"/>
+        </VBox>
+    </left>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <center>
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    styleClass="scroll-contenido">
+
+            <VBox spacing="20"
+                  styleClass="contenido">
+
+                <!-- ENCABEZADO -->
+                <HBox alignment="CENTER_LEFT"
+                      spacing="15">
+
+                    <VBox spacing="6">
+
+                        <Label text="Gestión de Alimentación"
+                               styleClass="titulo"/>
+
+                        <Label
+                                text="Registro y seguimiento del alimento suministrado a las truchas"
+                                styleClass="subtitulo"/>
+
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Label text="CONTROL ALIMENTARIO"
+                           styleClass="etiqueta-superior"/>
+
+                </HBox>
+
+                <!-- INDICADOR -->
+                <HBox spacing="18"
+                      alignment="CENTER_LEFT"
+                      styleClass="tarjeta-indicador">
+
+                    <VBox spacing="7">
+
+                        <Label text="TOTAL DE REGISTROS"
+                               styleClass="indicador-titulo"/>
+
+                        <Label fx:id="lblTotalRegistros"
+                               text="0"
+                               styleClass="indicador-numero"/>
+
+                        <Label text="Suministros registrados"
+                               styleClass="indicador-texto"/>
+
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <VBox spacing="5"
+                          alignment="CENTER_RIGHT">
+
+                        <Label text="Seguimiento alimentario"
+                               styleClass="seccion-titulo"/>
+
+                        <Label
+                                text="Historial de alimentación por lote"
+                                styleClass="subtitulo"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <!-- FORMULARIO Y TABLA -->
+                <HBox spacing="18"
+                      alignment="TOP_LEFT">
+
+                    <!-- FORMULARIO -->
+                    <VBox prefWidth="350"
+                          minWidth="320"
+                          spacing="12"
+                          styleClass="tarjeta">
+
+                        <Label text="Registrar alimentación"
+                               styleClass="seccion-titulo"/>
+
+                        <Label
+                                text="Ingresa la información del suministro de alimento."
+                                wrapText="true"
+                                styleClass="subtitulo"/>
+
+                        <Separator/>
+
+                        <!-- LOTE -->
+                        <Label text="Lote de truchas"
+                               styleClass="campo-titulo"/>
+
+                        <ComboBox fx:id="cmbLote"
+                                  promptText="Seleccione un lote"
+                                  maxWidth="Infinity"
+                                  styleClass="campo"/>
+
+                        <!-- FECHA -->
+                        <Label text="Fecha de alimentación"
+                               styleClass="campo-titulo"/>
+
+                        <DatePicker fx:id="dpFecha"
+                                    maxWidth="Infinity"
+                                    styleClass="campo"/>
+
+                        <!-- TIPO -->
+                        <Label text="Tipo de alimento"
+                               styleClass="campo-titulo"/>
+
+                        <TextField fx:id="txtTipoAlimento"
+                                   promptText="Ej. Alimento balanceado"
+                                   styleClass="campo"/>
+
+                        <!-- CANTIDAD -->
+                        <Label text="Cantidad suministrada (kg)"
+                               styleClass="campo-titulo"/>
+
+                        <TextField fx:id="txtCantidadKg"
+                                   promptText="Ej. 5.500"
+                                   styleClass="campo"/>
+
+                        <!-- OBSERVACIONES -->
+                        <Label text="Observaciones"
+                               styleClass="campo-titulo"/>
+
+                        <TextArea fx:id="txtObservaciones"
+                                  promptText="Ingrese observaciones..."
+                                  prefRowCount="3"
+                                  wrapText="true"
+                                  styleClass="campo"/>
+
+                        <Separator/>
+
+                        <Label text="ACCIONES"
+                               styleClass="indicador-titulo"/>
+
+                        <!-- BOTONES -->
+                        <GridPane hgap="10"
+                                  vgap="10">
+
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+
+                            <Button fx:id="btnRegistrar"
+                                    text="Registrar"
+                                    onAction="#registrarAlimentacion"
+                                    maxWidth="Infinity"
+                                    styleClass="boton-primario"
+                                    GridPane.columnIndex="0"
+                                    GridPane.rowIndex="0"/>
+
+                            <Button fx:id="btnModificar"
+                                    text="Modificar"
+                                    onAction="#modificarAlimentacion"
+                                    maxWidth="Infinity"
+                                    styleClass="boton-secundario"
+                                    GridPane.columnIndex="1"
+                                    GridPane.rowIndex="0"/>
+
+                            <Button fx:id="btnLimpiar"
+                                    text="Limpiar formulario"
+                                    onAction="#limpiarFormulario"
+                                    maxWidth="Infinity"
+                                    styleClass="boton-limpiar"
+                                    GridPane.columnIndex="0"
+                                    GridPane.columnSpan="2"
+                                    GridPane.rowIndex="1"/>
+
+                        </GridPane>
+
+                        <Label
+                                text="Seleccione un registro del historial para modificar su información."
+                                wrapText="true"
+                                styleClass="subtitulo"/>
+
+                    </VBox>
+
+                    <!-- HISTORIAL -->
+                    <VBox spacing="15"
+                          minWidth="470"
+                          HBox.hgrow="ALWAYS"
+                          styleClass="tarjeta">
+
+                        <HBox alignment="CENTER_LEFT"
+                              spacing="10">
+
+                            <VBox spacing="5">
+
+                                <Label text="Historial de alimentación"
+                                       styleClass="seccion-titulo"/>
+
+                                <Label
+                                        text="Consulta los suministros registrados en cada lote."
+                                        styleClass="subtitulo"/>
+
+                            </VBox>
+
+                            <Region HBox.hgrow="ALWAYS"/>
+
+                            <Label text="REGISTROS"
+                                   styleClass="etiqueta-superior"/>
+
+                        </HBox>
+
+                        <!-- BUSCADOR -->
+                        <TextField fx:id="txtBuscar"
+                                   promptText="Buscar por lote o tipo de alimento..."
+                                   styleClass="campo"/>
+
+                        <!-- TABLA -->
+                        <TableView fx:id="tablaAlimentacion"
+                                   prefHeight="470"
+                                   minHeight="350"
+                                   VBox.vgrow="ALWAYS">
+
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                            </columnResizePolicy>
+
+                            <columns>
+
+                                <TableColumn fx:id="colId"
+                                             text="ID"
+                                             prefWidth="60"
+                                             minWidth="40"/>
+
+                                <TableColumn fx:id="colLote"
+                                             text="Lote"
+                                             prefWidth="100"
+                                             minWidth="65"/>
+
+                                <TableColumn fx:id="colFecha"
+                                             text="Fecha"
+                                             prefWidth="115"
+                                             minWidth="90"/>
+
+                                <TableColumn fx:id="colTipo"
+                                             text="Alimento"
+                                             prefWidth="165"
+                                             minWidth="100"/>
+
+                                <TableColumn fx:id="colCantidad"
+                                             text="Cantidad (kg)"
+                                             prefWidth="135"
+                                             minWidth="100"/>
+
+                                <TableColumn fx:id="colObservaciones"
+                                             text="Observaciones"
+                                             prefWidth="190"
+                                             minWidth="120"/>
+
+                            </columns>
+
+                            <placeholder>
+                                <Label
+                                        text="No existen registros de alimentación"/>
+                            </placeholder>
+
+                        </TableView>
+
+                    </VBox>
+
+                </HBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="pe.edu.upeu.piscicontrolf.controller.EstanquesController"
+        id="pantallaEstanques"
+        styleClass="pantalla"
+        stylesheets="@piscicontrol.css"
+        prefWidth="1350"
+        prefHeight="800">
+
+    <!-- MENU LATERAL -->
+    <left>
+        <VBox prefWidth="240"
+              spacing="9"
+              styleClass="menu-lateral">
+
+            <Label text="PisciControlF"
+                   styleClass="logo"/>
+
+            <Label text="Gestión inteligente de piscigranjas"
+                   wrapText="true"
+                   styleClass="logo-subtitulo"/>
+
+            <Separator/>
+
+            <Label text="MENÚ PRINCIPAL"
+                   styleClass="menu-pie"/>
+
+            <Button text="Panel principal"
+                    onAction="#volverAlPanel"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Estanques"
+                    maxWidth="Infinity"
+                    styleClass="menu-activo"/>
+
+            <Button text="Lotes de truchas"
+                    onAction="#abrirLotes"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Alimentación"
+                    onAction="#abrirAlimentacion"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Crecimiento"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Producción"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Separator/>
+
+            <Label text="ADMINISTRACIÓN"
+                   styleClass="menu-pie"/>
+
+            <Button text="Clientes"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Ventas"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Reportes"
+                    disable="true"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="PisciControlF | Versión 1.0"
+                   styleClass="menu-pie"/>
+        </VBox>
+    </left>
+
+    <!-- CONTENIDO -->
+    <center>
+        <VBox spacing="20"
+              styleClass="contenido">
+
+            <!-- ENCABEZADO -->
+            <HBox alignment="CENTER_LEFT"
+                  spacing="15">
+
+                <VBox spacing="6">
+                    <Label text="Gestión de Estanques"
+                           styleClass="titulo"/>
+
+                    <Label
+                            text="Administración y control de infraestructura acuícola"
+                            styleClass="subtitulo"/>
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Label text="INFRAESTRUCTURA"
+                       styleClass="etiqueta-superior"/>
+            </HBox>
+
+            <!-- INDICADORES -->
+            <GridPane hgap="15">
+
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="33.33"/>
+                    <ColumnConstraints percentWidth="33.33"/>
+                    <ColumnConstraints percentWidth="33.34"/>
+                </columnConstraints>
+
+                <!-- TOTAL -->
+                <VBox spacing="7"
+                      styleClass="tarjeta-indicador"
+                      GridPane.columnIndex="0">
+
+                    <Label text="TOTAL DE ESTANQUES"
+                           styleClass="indicador-titulo"/>
+
+                    <Label fx:id="lblTotalEstanques"
+                           text="0"
+                           styleClass="indicador-numero"/>
+
+                    <Label text="Estanques registrados"
+                           styleClass="indicador-texto"/>
+                </VBox>
+
+                <!-- ACTIVOS -->
+                <VBox spacing="7"
+                      styleClass="tarjeta-indicador"
+                      GridPane.columnIndex="1">
+
+                    <Label text="ESTANQUES ACTIVOS"
+                           styleClass="indicador-titulo"/>
+
+                    <Label fx:id="lblEstanquesActivos"
+                           text="—"
+                           styleClass="numero-activos"/>
+
+                    <Label text="En funcionamiento"
+                           styleClass="indicador-texto"/>
+                </VBox>
+
+                <!-- INACTIVOS -->
+                <VBox spacing="7"
+                      styleClass="tarjeta-indicador"
+                      GridPane.columnIndex="2">
+
+                    <Label text="ESTANQUES INACTIVOS"
+                           styleClass="indicador-titulo"/>
+
+                    <Label fx:id="lblEstanquesInactivos"
+                           text="—"
+                           styleClass="numero-inactivos"/>
+
+                    <Label text="Fuera de operación"
+                           styleClass="indicador-texto"/>
+                </VBox>
+
+            </GridPane>
+
+            <!-- FORMULARIO Y TABLA -->
+            <HBox spacing="18"
+                  VBox.vgrow="ALWAYS">
+
+                <!-- FORMULARIO -->
+                <VBox prefWidth="330"
+                      minWidth="300"
+                      spacing="12"
+                      styleClass="tarjeta">
+
+                    <Label text="Datos del estanque"
+                           styleClass="seccion-titulo"/>
+
+                    <Label
+                            text="Registra y administra los estanques de producción."
+                            wrapText="true"
+                            styleClass="subtitulo"/>
+
+                    <Separator/>
+
+                    <Label text="Nombre del estanque"
+                           styleClass="campo-titulo"/>
+
+                    <TextField fx:id="txtNombre"
+                               promptText="Ej. Estanque Principal"
+                               styleClass="campo"/>
+
+                    <Label text="Capacidad de truchas"
+                           styleClass="campo-titulo"/>
+
+                    <TextField fx:id="txtCapacidad"
+                               promptText="Ej. 1000"
+                               styleClass="campo"/>
+
+                    <Label text="Ubicación"
+                           styleClass="campo-titulo"/>
+
+                    <TextField fx:id="txtUbicacion"
+                               promptText="Ej. Sector Norte"
+                               styleClass="campo"/>
+
+                    <Separator/>
+
+                    <Label text="ACCIONES"
+                           styleClass="indicador-titulo"/>
+
+                    <GridPane hgap="10"
+                              vgap="10">
+
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50"/>
+                            <ColumnConstraints percentWidth="50"/>
+                        </columnConstraints>
+
+                        <Button fx:id="btnRegistrar"
+                                text="Registrar"
+                                onAction="#registrarEstanque"
+                                maxWidth="Infinity"
+                                styleClass="boton-primario"
+                                GridPane.columnIndex="0"
+                                GridPane.rowIndex="0"/>
+
+                        <Button fx:id="btnModificar"
+                                text="Modificar"
+                                onAction="#modificarEstanque"
+                                maxWidth="Infinity"
+                                styleClass="boton-secundario"
+                                GridPane.columnIndex="1"
+                                GridPane.rowIndex="0"/>
+
+                        <Button fx:id="btnDesactivar"
+                                text="Desactivar"
+                                onAction="#desactivarEstanque"
+                                maxWidth="Infinity"
+                                styleClass="boton-peligro"
+                                GridPane.columnIndex="0"
+                                GridPane.rowIndex="1"/>
+
+                        <Button fx:id="btnLimpiar"
+                                text="Limpiar"
+                                onAction="#limpiarFormulario"
+                                maxWidth="Infinity"
+                                styleClass="boton-limpiar"
+                                GridPane.columnIndex="1"
+                                GridPane.rowIndex="1"/>
+                    </GridPane>
+
+                    <Region VBox.vgrow="ALWAYS"/>
+
+                    <Label
+                            text="Seleccione un estanque de la tabla para modificarlo o desactivarlo."
+                            wrapText="true"
+                            styleClass="subtitulo"/>
+
+                </VBox>
+
+                <!-- TABLA -->
+                <VBox spacing="15"
+                      minWidth="470"
+                      HBox.hgrow="ALWAYS"
+                      styleClass="tarjeta">
+
+                    <HBox alignment="CENTER_LEFT"
+                          spacing="10">
+
+                        <VBox spacing="4">
+                            <Label text="Estanques registrados"
+                                   styleClass="seccion-titulo"/>
+
+                            <Label
+                                    text="Consulta, busca y selecciona los registros."
+                                    styleClass="subtitulo"/>
+                        </VBox>
+
+                        <Region HBox.hgrow="ALWAYS"/>
+
+                        <Label text="REGISTROS"
+                               styleClass="etiqueta-superior"/>
+
+                    </HBox>
+
+                    <TextField fx:id="txtBuscar"
+                               promptText="Buscar por nombre o ubicación..."
+                               styleClass="campo"/>
+
+                    <TableView fx:id="tablaEstanques"
+                               minHeight="320"
+                               VBox.vgrow="ALWAYS">
+
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+
+                        <columns>
+                            <TableColumn fx:id="colId"
+                                         text="ID"
+                                         prefWidth="60"
+                                         minWidth="45"/>
+
+                            <TableColumn fx:id="colNombre"
+                                         text="Nombre"
+                                         prefWidth="190"
+                                         minWidth="100"/>
+
+                            <TableColumn fx:id="colCapacidad"
+                                         text="Capacidad"
+                                         prefWidth="125"
+                                         minWidth="85"/>
+
+                            <TableColumn fx:id="colUbicacion"
+                                         text="Ubicación"
+                                         prefWidth="180"
+                                         minWidth="100"/>
+
+                            <TableColumn fx:id="colEstado"
+                                         text="Estado"
+                                         prefWidth="130"
+                                         minWidth="90"/>
+                        </columns>
+
+                        <placeholder>
+                            <Label
+                                    text="No hay estanques registrados"/>
+                        </placeholder>
+
+                    </TableView>
+
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

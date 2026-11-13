@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="pe.edu.upeu.piscicontrolf.controller.CalidadAguaController"
+        id="pantallaCalidadAgua"
+        prefWidth="1350"
+        prefHeight="820"
+        stylesheets="@piscicontrol.css"
+        styleClass="pantalla">
+
+    <!-- MENU LATERAL -->
+    <left>
+        <VBox prefWidth="240"
+              spacing="10"
+              styleClass="menu-lateral">
+
+            <Label text="PisciControlF"
+                   styleClass="logo"/>
+
+            <Label text="Gestión inteligente de piscigranjas"
+                   wrapText="true"
+                   styleClass="logo-subtitulo"/>
+
+            <Separator/>
+
+            <Label text="OPERACIONES"
+                   styleClass="menu-pie"/>
+
+            <Button text="Panel principal"
+                    onAction="#volverAlPanel"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Gestión de estanques"
+                    onAction="#abrirEstanques"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Lotes de truchas"
+                    onAction="#abrirLotes"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Alimentación"
+                    onAction="#abrirAlimentacion"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Crecimiento"
+                    onAction="#abrirCrecimiento"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Calidad del agua"
+                    maxWidth="Infinity"
+                    styleClass="menu-activo"/>
+
+            <Button text="Producción"
+                    onAction="#abrirProduccion"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Ventas"
+                    onAction="#abrirVentas"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Button text="Reportes"
+                    onAction="#abrirReportes"
+                    maxWidth="Infinity"
+                    styleClass="menu-boton"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="PisciControlF | Versión 1.0"
+                   styleClass="menu-pie"/>
+        </VBox>
+    </left>
+
+    <!-- CONTENIDO -->
+    <center>
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    style="-fx-background: #F3F7FC;">
+
+            <VBox spacing="20"
+                  styleClass="contenido">
+
+                <!-- ENCABEZADO -->
+                <HBox alignment="CENTER_LEFT"
+                      spacing="12">
+
+                    <VBox spacing="5">
+                        <Label text="Gestión de Calidad del Agua"
+                               styleClass="titulo"/>
+
+                        <Label
+                                text="Control de parámetros del agua para el bienestar de las truchas"
+                                styleClass="subtitulo"/>
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Label text="CONTROL AMBIENTAL"
+                           styleClass="etiqueta-superior"/>
+                </HBox>
+
+                <!-- INDICADORES -->
+                <HBox spacing="15">
+
+                    <VBox spacing="7"
+                          HBox.hgrow="ALWAYS"
+                          styleClass="tarjeta-indicador">
+
+                        <Label text="TOTAL DE MEDICIONES"
+                               styleClass="indicador-titulo"/>
+
+                        <Label fx:id="lblTotalMediciones"
+                               text="0"
+                               styleClass="indicador-numero"/>
+                    </VBox>
+
+                    <VBox spacing="7"
+                          HBox.hgrow="ALWAYS"
+                          styleClass="tarjeta-indicador">
+
+                        <Label text="TEMPERATURA"
+                               styleClass="indicador-titulo"/>
+
+                        <Label fx:id="lblUltimaTemperatura"
+                               text="-- °C"
+                               styleClass="indicador-numero"/>
+                    </VBox>
+
+                    <VBox spacing="7"
+                          HBox.hgrow="ALWAYS"
+                          styleClass="tarjeta-indicador">
+
+                        <Label text="NIVEL DE pH"
+                               styleClass="indicador-titulo"/>
+
+                        <Label fx:id="lblUltimoPh"
+                               text="--"
+                               styleClass="indicador-numero"/>
+                    </VBox>
+
+                    <VBox spacing="7"
+                          HBox.hgrow="ALWAYS"
+                          styleClass="tarjeta-indicador">
+
+                        <Label text="OXÍGENO DISUELTO"
+                               styleClass="indicador-titulo"/>
+
+                        <Label fx:id="lblUltimoOxigeno"
+                               text="-- mg/L"
+                               styleClass="indicador-numero"/>
+                    </VBox>
+
+                </HBox>
+
+                <!-- FORMULARIO -->
+                <VBox spacing="15"
+                      styleClass="tarjeta">
+
+                    <Label text="Registrar medición del agua"
+                           styleClass="seccion-titulo"/>
+
+                    <Label
+                            text="Registra los parámetros medidos en cada estanque."
+                            styleClass="subtitulo"/>
+
+                    <Separator/>
+
+                    <GridPane hgap="18"
+                              vgap="12">
+
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50"/>
+                            <ColumnConstraints percentWidth="50"/>
+                        </columnConstraints>
+
+                        <Label text="Estanque"
+                               styleClass="campo-titulo"
+                               GridPane.columnIndex="0"
+                               GridPane.rowIndex="0"/>
+
+                        <Label text="Fecha de medición"
+                               styleClass="campo-titulo"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="0"/>
+
+                        <ComboBox fx:id="cmbEstanque"
+                                  promptText="Seleccione un estanque"
+                                  maxWidth="Infinity"
+                                  styleClass="campo"
+                                  GridPane.columnIndex="0"
+                                  GridPane.rowIndex="1"/>
+
+                        <DatePicker fx:id="dpFecha"
+                                    maxWidth="Infinity"
+                                    styleClass="campo"
+                                    GridPane.columnIndex="1"
+                                    GridPane.rowIndex="1"/>
+
+                        <Label text="Temperatura (°C)"
+                               styleClass="campo-titulo"
+                               GridPane.columnIndex="0"
+                               GridPane.rowIndex="2"/>
+
+                        <Label text="Nivel de pH"
+                               styleClass="campo-titulo"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="2"/>
+
+                        <TextField fx:id="txtTemperatura"
+                                   promptText="Ej. 14.5"
+                                   styleClass="campo"
+                                   GridPane.columnIndex="0"
+                                   GridPane.rowIndex="3"/>
+
+                        <TextField fx:id="txtPh"
+                                   promptText="Ej. 7.2"
+                                   styleClass="campo"
+                                   GridPane.columnIndex="1"
+                                   GridPane.rowIndex="3"/>
+
+                        <Label text="Oxígeno disuelto (mg/L)"
+                               styleClass="campo-titulo"
+                               GridPane.columnIndex="0"
+                               GridPane.rowIndex="4"/>
+
+                        <TextField fx:id="txtOxigeno"
+                                   promptText="Ej. 8.5"
+                                   styleClass="campo"
+                                   GridPane.columnIndex="0"
+                                   GridPane.rowIndex="5"/>
+
+                    </GridPane>
+
+                    <Label text="Observaciones"
+                           styleClass="campo-titulo"/>
+
+                    <TextArea fx:id="txtObservaciones"
+                              promptText="Observaciones sobre la calidad del agua..."
+                              prefRowCount="3"
+                              wrapText="true"
+                              styleClass="campo"/>
+
+                    <Separator/>
+
+                    <HBox spacing="12">
+
+                        <Button fx:id="btnRegistrar"
+                                text="Registrar medición"
+                                onAction="#registrarCalidad"
+                                styleClass="boton-primario"/>
+
+                        <Button fx:id="btnModificar"
+                                text="Modificar medición"
+                                onAction="#modificarCalidad"
+                                styleClass="boton-secundario"/>
+
+                        <Button fx:id="btnLimpiar"
+                                text="Limpiar formulario"
+                                onAction="#limpiarFormulario"
+                                styleClass="boton-limpiar"/>
+
+                    </HBox>
+                </VBox>
+
+                <!-- HISTORIAL -->
+                <VBox spacing="15"
+                      styleClass="tarjeta">
+
+                    <Label text="Historial de Calidad del Agua"
+                           styleClass="seccion-titulo"/>
+
+                    <Label
+                            text="Consulta las mediciones registradas por estanque."
+                            styleClass="subtitulo"/>
+
+                    <TextField fx:id="txtBuscar"
+                               promptText="Buscar por estanque, fecha o estado..."
+                               styleClass="campo"/>
+
+                    <TableView fx:id="tablaCalidad"
+                               prefHeight="330">
+
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+
+                        <columns>
+
+                            <TableColumn fx:id="colId"
+                                         text="ID"
+                                         prefWidth="60"/>
+
+                            <TableColumn fx:id="colEstanque"
+                                         text="Estanque"
+                                         prefWidth="120"/>
+
+                            <TableColumn fx:id="colFecha"
+                                         text="Fecha"
+                                         prefWidth="110"/>
+
+                            <TableColumn fx:id="colTemperatura"
+                                         text="Temperatura"
+                                         prefWidth="125"/>
+
+                            <TableColumn fx:id="colPh"
+                                         text="pH"
+                                         prefWidth="85"/>
+
+                            <TableColumn fx:id="colOxigeno"
+                                         text="Oxígeno"
+                                         prefWidth="120"/>
+
+                            <TableColumn fx:id="colEstado"
+                                         text="Estado"
+                                         prefWidth="110"/>
+
+                            <TableColumn fx:id="colObservaciones"
+                                         text="Observaciones"
+                                         prefWidth="220"/>
+
+                        </columns>
+
+                        <placeholder>
+                            <Label text="No hay mediciones registradas"/>
+                        </placeholder>
+
+                    </TableView>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
+
